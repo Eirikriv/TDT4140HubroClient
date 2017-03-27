@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import {graphql} from 'react-apollo';
-import logo from './logo.svg';
 import googleLoginPicture from '../assets/signInGoogle.png';
 import './App.css';
 
@@ -15,15 +14,13 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-            <form action={this.props.data.signIn.url}>
-      <input type="image" src={googleLoginPicture}/>
-          </form>
+
 
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          <a href={this.props.data.signIn.url}>
+            <img src={googleLoginPicture} alt=''></img>
+          </a>
         </p>
       </div>
     );
