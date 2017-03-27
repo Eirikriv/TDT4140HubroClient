@@ -10,7 +10,7 @@ script:
 deploy:
   provider: heroku
   app:
-    master: client-v1-hubro
-    staging: client-v2-hubro
+    master: client-v2-hubro
+    staging: client-v1-hubro
   api_key:
     secure: KXWwVmqbyVfl/OCTWwbKOyhD23IdZf+0y1u3p5o9+AXVJHwDdLzIBeLNmUoclpRmqsUQ8mvEziZMJMMRF9oqSQW1hfjjqBrqaHp7rwtK9lv6BP4NyJkyRyjj8N7Brea5aYX4xFeOlfAVH6G3rCbVD4LgSdcypmMbPxfTtpFqDE1/WDZTZN5GQNJ5NDU0gCusQ5iax4UzrfkoOM56yvm78ke4CvULzRKRozySo4c4Xsg+2uNsJgUuOwMTsTI6G0vvdLq4vYMH5NS/H8GASggUtcpf4L3QJjF+GESC4KP6aeXACMxJLU/S+WSVv7b92epNKeVQ4GYhdyOUvzMholJd6gjyQYbjAJckH62cM+vBV0SGVX0l5HdCTKM+iA1SjXnMznu2D7Z/opGuTLfAUQhaqJsnMAzGncSTr323EQhFvZsRDYCL+dVSpn3liSZ0ajXzk2Ej5sem1OzUzSfIzVqsa2LaYeng24gup6087AJdSQr68PNakdjfYY3bLxqfNhcoNPeJs34ca2s+GPl+wGFvohGrf0z8f33mHx6TCQq+WYdwz+fZgas6uY7cGW+w5ex50lFU7+bxUtsPpQns1j2JurDOiXcLAtZ+JGmKWlvMjtLM+dbW8MQM28ES7khH7qx9nSPiJ7rSQUczvDCgChG69ZhVQKk0ziDctRR8xsz0wkk=
