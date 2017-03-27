@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './components/App';
 import './index.css';
 
 
@@ -15,7 +15,5 @@ const client = new ApolloClient({
 
 ReactDOM.render(
     <ApolloProvider client ={client}>
-  <App />
-  ,
-  document.getElementById('root')
-);
+  <App/>
+  </ApolloProvider>,document.getElementById('root'));
