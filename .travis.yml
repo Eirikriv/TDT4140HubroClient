@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- stable
+cache:
+  directories:
+  - node_modules
+script:
+  -npm run test
+  -npm run build
+deploy:
+  provider: heroku
+  app:
+    master: client-v1-hubro
+    staging: client-v2-hubro
+  api_key:
+    secure: 1EyEdS2jntgmuhMYyHmAbXzMkEUM0le/EGjqhaGnVHGMXEvg15ZoFSiaSsnxUDH0jroppmpS/lU2jIeXqyeNdFkHv5yF58nBBtMPxR/rNywl25SCzlEkYAfKaOz4DJmeErR6KsuNYbfyree0RwKypKkY11sGBmjPnS2/W/ZZD9MIf3squddSgwPXyGeFz3EzeLVso5GFiRxER2IEhMY1c4XE00wDH0O9ZEFFR+Z6VpE3VDljM3CNMO8yWS+x93CTjKnUlVPMJFyIigerfo/pPxtG2ovv0EYNtFj4isBrt57e/24wvUQPTvyze2uF+qwdxqnkKjMZgPRNw0fkYUUecfI59+lNlTwi27euYego24VpgWjxpBEr4ziD6Sa0prPrQhUtiLv0G/9nvyB3hxUmO2vCA6R1KpqTKKvNP8XQJrtOjnXGorfhWUhIPh2GJny9NPuMYrtgRcS/WmBCenP7DkgJ9/3g+u9ExsB4gK9+8CEC+wSmUs9o6on6/85GLIkiGk5rUG6Aft4Pk30gw4lqNRgAIstfTF5QunceVXaopIAg17BI3S6QkxrZsLS6/XDa3Krle9KYLsjVu7/9bgGvpuU2AHSSHWeWdXxAtE8U6+Ron9moEbvBsyQKzuiwW8D2rOOe5MhSDLp6zOEaiUAhxxg7LtfsjMkiEhvEgP3cBJU=
