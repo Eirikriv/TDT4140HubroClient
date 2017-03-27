@@ -8,7 +8,7 @@ import './index.css';
 import {ApolloProvider} from 'react-apollo';
 import ApolloClient, {createNetworkInterface} from 'apollo-client';
 
-const networkInterface= createNetworkInterface({ uri: 'http://localhost:5000/graphql' });
+const networkInterface= createNetworkInterface({ uri: 'http://api.v1.hubro.tech/graphql' });
 const client= new ApolloClient({
   networkInterface,
 });

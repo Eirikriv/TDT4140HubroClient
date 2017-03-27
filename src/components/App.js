@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import {graphql} from 'react-apollo';
 import logo from './logo.svg';
+import googleLoginPicture from '../assets/signInGoogle.png';
 import './App.css';
 
 
@@ -11,12 +12,14 @@ const SignIn = gql`{signIn{url}}`;
 class App extends Component {
   render() {
     if (this.props.data.loading){return (<div><h1>Loading ....</h1></div>)}
-    console.log(this.props);
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
+            <form action={this.props.data.signIn.url}>
+      <input type="image" src={googleLoginPicture}/>
+          </form>
 
         </div>
         <p className="App-intro">
