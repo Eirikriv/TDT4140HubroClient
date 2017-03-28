@@ -8,9 +8,9 @@ html{
   height: 100%;
 }
 
-[data-reactroot] 
+[data-reactroot]
         {height: 100% !important; }
 
-#root{
+.container{
   height: 100%;
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {Link} from 'react-router'
 
 const ProfilePicture = styled.div`
 display: inline-block;
@@ -19,7 +20,8 @@ export default class Navbar extends React.Component{
       <NavbarLoggedIn>
     <ProfilePicture/>
     <h4>
-    Johannes Z. Vollan
+      <Link to="/home">  Johannes Z. Vollan</Link>
+
     </h4>
     </NavbarLoggedIn>
 

@@ -1,9 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
 import './index.css';
 
+import routes from './routes';
 
+import thunk from 'react-thunk'
+
+
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose} from 'redux';
+
+
+import {Router, browserHistory} from 'react-router';
+
+
+import rootReducer from './reducers/index';
 
 import {ApolloProvider} from 'react-apollo';
 import ApolloClient, {createNetworkInterface} from 'apollo-client';
@@ -14,6 +25,9 @@ const client= new ApolloClient({
 });
 
 ReactDOM.render(
-    <ApolloProvider client={client}>
-  <App/>
-  </ApolloProvider>,document.getElementById('root'));
+  //createStore(reducers)
+  //store={createStoreWithMiddleware()}
+  <ApolloProvider client ={client}>
+    <Router history={browserHistory} routes={routes}/>
+</ApolloProvider>
+  , document.querySelector('.container'));

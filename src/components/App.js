@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import {graphql} from 'react-apollo';
 import googleLoginPicture from '../assets/signInGoogle.png';
-import './App.css';
 import styled from 'styled-components'
 import backgroundImage from'../assets/bg.jpeg'
 
@@ -46,12 +45,13 @@ class App extends Component {
     if (this.props.data.loading){return (<div><h1>Loading ....</h1></div>)}
     return (
       <Outer>
-
       <WrapperHeader>
+
         <Navbar/>
         </WrapperHeader>
-        <StyledUl>
+        {this.props.children}
 
+        <StyledUl>
           <StyledLi>
             <a href={this.props.data.signIn.url}>
               <img src={googleLoginPicture} alt=''></img>
