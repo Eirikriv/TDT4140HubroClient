@@ -1,34 +1,11 @@
 
 import React, { Component } from 'react';
-import {graphql} from 'react-apollo';
-import googleLoginPicture from '../assets/signInGoogle.png';
 import styled from 'styled-components'
-import backgroundImage from'../assets/bg.jpeg'
-
+import CoverPhoto from './toppCover'
+import Outer from './outerComponent'
 import Navbar from './navbar'
-
-const Outer = styled.div`
-text-align: center;
-background: url(${backgroundImage})
-background-size: cover;
-background-repeat: no-repeat;
-`;
-
-const WrapperHeader = styled.div`
-background-color: #18121E;
-height: 150px;
-padding: 20px;
-color: white;
-`;
-const StyledUl = styled.ul`
-list-style-type: none;
-margin-top: 250px;
-`
-const StyledLi = styled.li`
- margin: 50px 0;
-`
 const Footer = styled.footer`
-position: absolute;
+position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
@@ -36,35 +13,34 @@ position: absolute;
   background-color: #18121E;
   text-align: center;
 `
+const BackNav = styled.div`
+height: 100px;
+width: 100%;
+background-color:black;
+opacity:0.2;
+position:absolute;
+top:0px;
+left:0px;
+z-index:1;
+`
 
-import gql from 'graphql-tag';
 
-const SignIn = gql`{signIn{url}}`;
 class App extends Component {
   render() {
-    if (this.props.data.loading){return (<div><h1>Loading ....</h1></div>)}
     return (
       <Outer>
-      <WrapperHeader>
-
+        <BackNav/>
         <Navbar/>
-        </WrapperHeader>
-        {this.props.children}
-
-        <StyledUl>
-          <StyledLi>
-            <a href={this.props.data.signIn.url}>
-              <img src={googleLoginPicture} alt=''></img>
-            </a>
-          </StyledLi>
-        </StyledUl>
-
+        <CoverPhoto/>
+        <div height="1000px">
+          lorem
+        </div>
         <Footer>
-          <p></p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </Footer>
       </Outer>
     );
   }
 }
 
-export default graphql(SignIn)(App);
+export default App;
