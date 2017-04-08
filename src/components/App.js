@@ -6,11 +6,10 @@ import Navbar from './navbar'
 import BehindNavSolid from './topBehindNav'
 import colors from '../assets/colorSchema'
 
-import Home from './Home/index'
 const BackNav = styled.div`
 height: 7vh;
 width: 100%;
-background-color:#093457;
+background-color:${colors.blue};
 opacity:0.8;
 position:fixed;
 top:0px;

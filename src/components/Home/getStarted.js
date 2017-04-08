@@ -2,9 +2,6 @@ import styled from 'styled-components'
 import React from 'react'
 import Outer from '../outerComponent'
 import colors from '../../assets/colorSchema'
-import Title from './title-component'
-import Paragraph from './paragraph'
-import btnGoogle from '../../assets/images/btnGoogle.svg'
 import btnG from '../../assets/images/gbtn.png'
 
 const GetStartedTag = styled.div`
@@ -19,11 +16,6 @@ width:50%;
 height: 100%;
 margin:auto;
 text-align:center;
-`
-const RightDiv = styled.div`
-width:50%;
-height: 100%;
-float:right;
 `
 const GBtn = styled.div`
 width:100%;
