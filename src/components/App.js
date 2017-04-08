@@ -1,70 +1,33 @@
 
 import React, { Component } from 'react';
-import {graphql} from 'react-apollo';
-import googleLoginPicture from '../assets/signInGoogle.png';
 import styled from 'styled-components'
-import backgroundImage from'../assets/bg.jpeg'
-
+import Outer from './outerComponent'
 import Navbar from './navbar'
+import BehindNavSolid from './topBehindNav'
+import colors from '../assets/colorSchema'
 
-const Outer = styled.div`
-text-align: center;
-background: url(${backgroundImage})
-background-size: cover;
-background-repeat: no-repeat;
-`;
-
-const WrapperHeader = styled.div`
-background-color: #18121E;
-height: 150px;
-padding: 20px;
-color: white;
-`;
-const StyledUl = styled.ul`
-list-style-type: none;
-margin-top: 250px;
-`
-const StyledLi = styled.li`
- margin: 50px 0;
-`
-const Footer = styled.footer`
-position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #18121E;
-  text-align: center;
+const BackNav = styled.div`
+height: 7vh;
+width: 100%;
+background-color:${colors.blue};
+opacity:0.8;
+position:fixed;
+top:0px;
+left:0px;
+z-index:1;
 `
 
-import gql from 'graphql-tag';
-
-const SignIn = gql`{signIn{url}}`;
 class App extends Component {
   render() {
-    if (this.props.data.loading){return (<div><h1>Loading ....</h1></div>)}
     return (
       <Outer>
-      <WrapperHeader>
-
+        <BackNav/>
         <Navbar/>
-        </WrapperHeader>
+        <BehindNavSolid/>
         {this.props.children}
-
-        <StyledUl>
-          <StyledLi>
-            <a href={this.props.data.signIn.url}>
-              <img src={googleLoginPicture} alt=''></img>
-            </a>
-          </StyledLi>
-        </StyledUl>
-
-        <Footer>
-          <p></p>
-        </Footer>
-      </Outer>
-    );
+	</Outer>
+    )
   }
 }
 
-export default graphql(SignIn)(App);
+export default App;
