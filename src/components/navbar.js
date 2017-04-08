@@ -5,7 +5,7 @@ import personDefault from '../assets/images/personDefault.svg'
 import colors from '../assets/colorSchema'
 
 const  OuterNavbar = styled.div`
-height: 100px;
+height: 7vh;
 width: 100%;
 position:fixed;
 top:0px;
@@ -34,7 +34,7 @@ font-size:30px;
 font-family: "Helvetica light", Helvetica;
 `
 const LinksContainer = styled.div`
-width:20%;
+width:50%;
 height:100%;
 float:right;
 `
