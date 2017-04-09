@@ -1,9 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 import hubroLogo from '../assets/images/hubroLogo.svg'
 import personDefault from '../assets/images/personDefault.svg'
 import colors from '../assets/colorSchema'
-
+import {gql, graphql} from 'react-apollo'
+const LoginStatus = gql`{currenUserStatus{status studentID}}`
 const  OuterNavbar = styled.div`
 height: 7vh;
 width: 100%;
@@ -53,6 +54,46 @@ width:50px;
 float:right;
 margin-top:20px;
 `
+const Blink = keyframes`
+0% {
+  opacity: .2;
+}
+20% {
+  opacity: 1;
+}
+100% {
+  opacity: .2;
+}
+}
+`
+const Dot1 = styled.div`
+width:25px;
+height:25px;
+background-color:white;
+border-radius:50%;
+animation:${Blink} 1.5s linear 0s infinite;
+float:left;
+margin:5px;
+`
+const Dot2 = styled.div`
+width:25px;
+height:25px;
+background-color:white;
+border-radius:50%;
+animation:${Blink} 1.5s linear 0.2s infinite;
+float:left;
+margin:5px;
+`
+const Dot3 = styled.div`
+width:25px;
+height:25px;
+background-color:white;
+border-radius:50%;
+animation:${Blink} 1.5s linear 0.4s infinite;
+float:left;
+margin:5px;
+`
+
 const isAuthenticated = true
 const UserLinks=(
   <LinksContainer>
@@ -78,10 +119,22 @@ const PublicLinks = (
     </SingleLinks>
 </LinksContainer>
 )
-export default class Navbar extends React.Component{
+const LoadDiv = styled.div`
+width: 150px;
+height: 50px;
+color : white;
+`
+
+const Loading = (
+  <LoadDiv>
+    <Dot1/>
+    <Dot2/>
+    <Dot3/>
+  </LoadDiv>
+)
+class Navbar extends React.Component{
   render(){
     return (
-
         <OuterNavbar>
           <Home>
               <Logo></Logo>
@@ -89,10 +142,12 @@ export default class Navbar extends React.Component{
                 Hubro
               </Logotext>
           </Home>
-            {isAuthenticated?UserLinks:PublicLinks}
-
-
+          <LinksContainer>
+          {this.props.data.loading?Loading:(this.props.data.currenUserStatus.status?UserLinks:PublicLinks)}
+        </LinksContainer>
         </OuterNavbar>
     )
   }
 }
+
+export default graphql(LoginStatus)(Navbar)
