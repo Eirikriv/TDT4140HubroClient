@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "react-toggle": "^3.0.1"
+    "material-ui": "^0.17.1",
+    "react-toggle": "^3.0.1",
+    "react-toggle-button": "^2.1.0"
   }
 }
