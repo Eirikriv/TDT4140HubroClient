@@ -9,17 +9,23 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {signin} from '../../actions/authStatus'
 const LoginStatus = gql`{currenUserStatus{status studentID}googleLink}`
-
+import {updateAuth} from '../../actions/authStatus'
 class Navbar extends React.Component{
   constructor(props) {
     super(props);
     this.loadHandler = this.loadHandler.bind(this);
   }
+  shouldComponentUpdate(nextProps, nextState){
+    if(nextProps.shouldRefetchAuth.value){
+      this.props.data.refetch()
+      this.props.updateAuth(false)
+    }
+    return true
+  }
   loadHandler(){
-    console.log(this.props.authStatus);
+    console.log(this.props);
     if (this.props.data.loading) return <Loader/>
-    if (this.props.data.currenUserStatus.status && this.props.authStatus) {
-      this.props.signin(this.props.data.currenUserStatus)
+    if (this.props.data.currenUserStatus.status) {
       return <UserLinks studentID={this.props.data.currenUserStatus.studentID}/>
     }
     return <PublicLinks googleLink={this.props.data.googleLink}/>
@@ -41,12 +47,11 @@ class Navbar extends React.Component{
 }
 const mapStateToProps =(state)=>{
   return {
-    authStatus : state.auth.status,
-    authId : state.auth.status
+    shouldRefetchAuth : state.shouldRefetchAuth,
   }
 }
 const mapDispatchToProps =(dispatch) =>{
-  return bindActionCreators({signin},dispatch)
+  return bindActionCreators({updateAuth},dispatch)
 }
 
 Navbar = connect(mapStateToProps, mapDispatchToProps)(Navbar)

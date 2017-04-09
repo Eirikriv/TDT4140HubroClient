@@ -4,7 +4,8 @@ import {SingleLinks} from './utils'
 import {gql, graphql} from 'react-apollo'
 import {browserHistory} from 'react-router'
 import {connect} from 'react-redux'
-import {signout} from '../../actions/authStatus'
+
+import {updateAuth} from '../../actions/authStatus'
 import {bindActionCreators } from 'redux'
 const SignOutMutation = gql`mutation{signOut{status studentID}}`
 class Signout extends React.Component{
@@ -17,8 +18,8 @@ class Signout extends React.Component{
       variables:{}
     }
   ).then(({data})=>{
-    console.log('pushing')
-    this.props.signout({data})
+    console.log(this.props)
+    this.props.updateAuth(true)
   }).
   catch((err)=>{
     console.log(err);
@@ -34,8 +35,8 @@ class Signout extends React.Component{
   }
 
 const mapDispatchToProps =(dispatch) =>{
-  return bindActionCreators({signout},dispatch)
+  return bindActionCreators({updateAuth},dispatch)
 }
 
-Signout = connect(mapDispatchToProps)(Signout)
+Signout = connect(null,mapDispatchToProps)(Signout)
 export default graphql(SignOutMutation)(Signout)

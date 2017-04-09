@@ -1,4 +1,22 @@
-import {AUTH_STATUS_ACTIVE, AUTH_STATUS_NOT_ACTIVE} from '../types/index'
+import {AUTH_STATUS_ACTIVE, AUTH_STATUS_NOT_ACTIVE, UPDATE_AUTH, UPDATED_AUTH} from '../types/index'
+
+const updateAuth = (value) =>{
+    return {
+      type: UPDATE_AUTH,
+      payload :{
+        value
+      }
+    }
+}
+
+const UpdatedAuth = (value) =>{
+  return{
+    type: UPDATED_AUTH,
+    payload: {
+      value
+    }
+  }
+}
 
 const signout = (statusObject)=>{
 return{
@@ -20,4 +38,4 @@ const signin = (statusObject) => {
   }
 }
 
-export {signout, signin}
+export {signout, signin, updateAuth}
