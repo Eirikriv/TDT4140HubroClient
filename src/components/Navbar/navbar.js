@@ -4,7 +4,8 @@ import hubroLogo from '../assets/images/hubroLogo.svg'
 import personDefault from '../assets/images/personDefault.svg'
 import colors from '../assets/colorSchema'
 import {gql, graphql} from 'react-apollo'
-const LoginStatus = gql`{currenUserStatus{status studentID}}`
+const LoginStatus = gql`{currenUserStatus{status studentID}googleLink}`
+const LoginMutation = gql`mutation{signOut{status studentID}}`
 const  OuterNavbar = styled.div`
 height: 7vh;
 width: 100%;
@@ -95,30 +96,6 @@ margin:5px;
 `
 
 const isAuthenticated = true
-const UserLinks=(
-  <LinksContainer>
-    <Profile/>
-    <SingleLinks>
-      Sign out
-    </SingleLinks>
-    <SingleLinks>
-      Blog
-    </SingleLinks>
-</LinksContainer>
-)
-const PublicLinks = (
-  <LinksContainer>
-    <SingleLinks>
-      Sign in
-    </SingleLinks>
-    <SingleLinks>
-      Sign up
-    </SingleLinks>
-    <SingleLinks>
-      Blog
-    </SingleLinks>
-</LinksContainer>
-)
 const LoadDiv = styled.div`
 width: 150px;
 height: 50px;
@@ -133,7 +110,39 @@ const Loading = (
   </LoadDiv>
 )
 class Navbar extends React.Component{
+  handleSignOut(){
+    console.log('ok');
+  }
   render(){
+    const PublicLinks = (
+      <LinksContainer>
+        <a href ={this.props.data.googleLink}>
+        <SingleLinks>
+          Sign in
+        </SingleLinks>
+      </a>
+        <a href={this.props.data.googleLink}>
+          <SingleLinks>
+            Sign up
+          </SingleLinks>
+        </a>
+        <SingleLinks>
+          Blog
+        </SingleLinks>
+      </LinksContainer>
+    )
+
+    const UserLinks=(
+      <LinksContainer>
+        <Profile/>
+        <SingleLinks onClick={this.handleSignOut.bind(this)}>
+          Sign out
+        </SingleLinks>
+        <SingleLinks>
+          Blog
+        </SingleLinks>
+      </LinksContainer>
+    )
     return (
         <OuterNavbar>
           <Home>
@@ -150,4 +159,4 @@ class Navbar extends React.Component{
   }
 }
 
-export default graphql(LoginStatus)(Navbar)
+export default graphql(LoginMutation)(graphql(LoginStatus)(Navbar))
