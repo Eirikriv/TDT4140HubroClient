@@ -4,10 +4,6 @@ import App from './components/App';
 import Home from './components/Home/index'
 import Settings from './components/Settings/index'
 
-//must check with server
-
-
-
 
 export default(
   <Route path="/" component={App}>
