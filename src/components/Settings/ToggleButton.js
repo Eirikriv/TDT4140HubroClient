@@ -8,9 +8,12 @@ const Input = styled.input`
  height:20px;
 `
 export default class Toggle extends React.Component{
+  constructor(props){
+    super(props)
+  }
     render(){
       return(
-        <Input type="checkbox"/>
+        <Input type="checkbox" checked ={this.props.checked}/>
       )
     }
   }

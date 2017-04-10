@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Outer from '../outerComponent'
 import colors from '../../assets/colorSchema'
 import Toggle from './ToggleButton'
+
 const Table = styled.table`
 text-align:left;
 width:100%;

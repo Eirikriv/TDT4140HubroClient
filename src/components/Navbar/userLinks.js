@@ -4,6 +4,7 @@ import personDefault from '../../assets/images/personDefault.svg'
 import {gql, graphql} from 'react-apollo'
 import {SingleLinks, LinksContainer} from './utils'
 import Signout from './signout'
+import {Link} from 'react-router'
 const UserQuery = gql`query UserQuery($studentID: String!){user(studentID:$studentID){studentName profilePictureUrl}}`
 
  class UserLinks extends React.Component{
@@ -24,7 +25,9 @@ loadHandler(){
     `
     return(
       <LinksContainer>
+        <Link to='/user/settings'>
       <Profile/>
+    </Link>
       <Signout/>
       <SingleLinks>
       Blog

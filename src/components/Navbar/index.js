@@ -23,7 +23,7 @@ class Navbar extends React.Component{
     return true
   }
   loadHandler(){
-    console.log(this.props);
+
     if (this.props.data.loading) return <Loader/>
     if (this.props.data.currenUserStatus.status) {
       return <UserLinks studentID={this.props.data.currenUserStatus.studentID}/>
