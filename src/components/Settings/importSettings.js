@@ -1,29 +1,39 @@
 import React from 'react'
 import styled from 'styled-components'
-import Loader from './loader'
-import {gql, graphql} from 'react-apollo'
-import  {Table, TR, TD, TH, DIV, TITLE, Input, Outertable} from './utils'
+import {graphql} from 'react-apollo'
 
-import {PlatformSettings} from './platformSettings'
-export const settingsQuery = gql`{user(studentID: "117016280903482792588"){studenSetting{settingsID  itlearning fronter blackboard lectures assignments assignmentlecture }}}`
+import {getSettings} from '../../graphql/queries'
+import {updateTypeSettings} from '../../graphql/mutations'
 
+import Lines from './typesSettings'
 class ImportSettings extends React.Component{
   constructor(props){
     super(props)
     this.handleLoad = this.handleLoad.bind(this)
   }
+
+
   handleLoad(){
-    if(this.props.data.loading){ return <Loader/>}
-    console.log(this.props.data.user.studenSetting);
-    return( <PlatformSettings studenSetting={this.props.data.user.studenSetting}/>)
+    if(!this.props.data.loading){
+      return <Lines settings={this.props.data.user.studentSettings}/>
+
+    }
   }
     render(){
       return(
-        <Outertable>
+        <div>
+        <h1>settings</h1>
         {this.handleLoad()}
-        </Outertable>
+        </div>
       )
     }
   }
 
-  export default graphql(settingsQuery)(ImportSettings)
+
+export default graphql(getSettings,{
+  options:{
+    variables:{
+      studentId:"117016280903482792588"
+    }
+  }
+})(ImportSettings)
