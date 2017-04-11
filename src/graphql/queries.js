@@ -12,4 +12,5 @@ const getSettings = gql`query getUserSetting($studentId: String!) {
   }
 }`
 
-export {getSettings}
+const getTimeSettings = gql`query getTimeSettings($studentId: String!){user(studentID:$studentId){studentTimeSettings{settingsID start end studentID}}}`
+export {getSettings, getTimeSettings}

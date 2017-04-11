@@ -7,4 +7,8 @@ const updateTypeSettings = gql`mutation updateSettings($studentId: String!, $set
 const addCourse = gql`mutation addCourse($studentId: String!, $courseID:String!, $courseName:String!){addStudentCourse(studentID:$studentId, courseID:$courseID, courseName:$courseName){courseName courseId selectedItem}}`
 
 const removeCourse = gql`mutation removeCourse($studentId: String!, $courseID:String!, $courseName:String!){removeStudentCourse(studentID:$studentId, courseID:$courseID, courseName:$courseName){courseName courseId selectedItem}}`
-export {updateTypeSettings, addCourse, removeCourse}
+
+const updateTimeEnd = gql`mutation updateEnd($studentId: String!, $settingsId: String!,$end: String!){updateEndTime(settingsID:$settingsId, studentID:$studentId, end:$end){settingsID studentID start end}}`
+const updateTimeStart = gql`mutation updateStart($studentId: String!, $settingsId: String!,$start: String!){updateStartTime(settingsID:$settingsId, studentID:$studentId, start:$start){settingsID studentID start end}}`
+
+export {updateTypeSettings, addCourse, removeCourse, updateTimeEnd, updateTimeStart}
