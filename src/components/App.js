@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import Outer from './outerComponent'
-import Navbar from './navbar'
+import Navbar from './Navbar/index'
 import BehindNavSolid from './topBehindNav'
 import colors from '../assets/colorSchema'
 

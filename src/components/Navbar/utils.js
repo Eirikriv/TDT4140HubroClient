@@ -1,0 +1,49 @@
+import styled from 'styled-components'
+import colors from '../../assets/colorSchema'
+import hubroLogo from '../../assets/images/hubroLogo.svg'
+
+const LinksContainer = styled.div`
+width:50%;
+height:100%;
+float:right;
+`
+const SingleLinks = styled.div`
+margin:20px;
+color:${colors.textWhite};
+font-size:20px;
+font-family: "Helvetica light", Helvetica;
+float:right;
+cursor:pointer;
+`
+
+
+const  OuterNavbar = styled.div`
+height: 7vh;
+width: 100%;
+position:fixed;
+top:0px;
+left:0px;
+z-index:5;
+opacity:100%;
+`
+const Home = styled.div`
+width: 30%;
+height: 100%;
+float:left
+`
+const Logo = styled.div`
+background-image: url(${hubroLogo});
+background-repeat: no-repeat;
+width: 50px;
+height:50px;
+margin: 10px;
+float:left;
+`
+const Logotext = styled.div`
+color:${colors.hubroYellow};
+margin-top:20px;
+float:left;
+font-size:30px;
+font-family: "Helvetica light", Helvetica;
+`
+export {LinksContainer,SingleLinks, OuterNavbar, Home,Logo, Logotext }
