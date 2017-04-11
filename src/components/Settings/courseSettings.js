@@ -56,6 +56,13 @@ handleChange(event){
         return course
       })
         this.setState({courses:prevState})
+        let selectedArray = []
+        _.forEach(this.state.courses, (courses)=>{
+          if(courses.selectedItem){
+            selectedArray.push(courses)
+          }
+        })
+        this.props.inititalFetchOfCourses(selectedArray)
     })
   }else{
     this.props.removeStudentCourseMutation({
@@ -71,8 +78,17 @@ handleChange(event){
         return course
       })
         this.setState({courses:prevState})
+        let selectedArray = []
+        _.forEach(this.state.courses, (courses)=>{
+          if(courses.selectedItem){
+            selectedArray.push(courses)
+          }
+        })
+        this.props.inititalFetchOfCourses(selectedArray)
   })
 }
+
+
 }
   renderList(){
 

@@ -13,7 +13,7 @@ class ImportSettings extends React.Component{
 
   handleLoad(){
     if(!this.props.data.loading){
-      console.log(this.props.data);
+      
       return(<div>
         <Lines settings={this.props.data.user.studentSettings}/>
         <Courses courses={this.props.data.user.courseSelected} studentId={"117016280903482792588"}/>
