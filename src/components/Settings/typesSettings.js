@@ -1,6 +1,5 @@
 import React from 'react'
 import {graphql} from 'react-apollo'
-import {getSettings} from '../../graphql/queries'
 import {updateTypeSettings} from '../../graphql/mutations'
 import _ from 'lodash'
  class Lines extends React.Component{
@@ -26,7 +25,6 @@ import _ from 'lodash'
    handleChange(event){
      const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
     const id = event.target.id
 
     this.props.mutate({
@@ -35,7 +33,7 @@ import _ from 'lodash'
         let prevStateSettings = this.state
         let updatedSettings = data.updateUserSettings
         prevStateSettings.settings.map((el)=>{
-          if (el.name == id){
+          if (el.name === id){
             el.value = updatedSettings.value
 
           }

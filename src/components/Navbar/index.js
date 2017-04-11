@@ -1,13 +1,12 @@
 
 import React from 'react'
 import {gql, graphql} from 'react-apollo'
-import {OuterNavbar, Logo, Logotext, Home, LinksContainer} from './utils'
+import {OuterNavbar, Logo, Logotext, Home} from './utils'
 import Loader from './loader'
 import UserLinks from './userLinks'
 import PublicLinks from './publicLinks'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {signin} from '../../actions/authStatus'
 const LoginStatus = gql`{currenUserStatus{status studentID}googleLink}`
 import {updateAuth} from '../../actions/authStatus'
 class Navbar extends React.Component{

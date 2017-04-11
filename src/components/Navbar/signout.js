@@ -1,8 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
 import {SingleLinks} from './utils'
 import {gql, graphql} from 'react-apollo'
-import {browserHistory} from 'react-router'
 import {connect} from 'react-redux'
 
 import {updateAuth} from '../../actions/authStatus'
@@ -20,8 +18,7 @@ class Signout extends React.Component{
   ).then(({data})=>{
     console.log(this.props)
     this.props.updateAuth(true)
-  }).
-  catch((err)=>{
+  }).catch((err)=>{
     console.log(err);
   })
   }

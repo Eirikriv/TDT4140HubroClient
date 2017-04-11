@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import {compose, graphql} from 'react-apollo'
 import {updateTimeEnd, updateTimeStart} from '../../graphql/mutations'
 import _ from 'lodash'
@@ -16,8 +15,8 @@ class DayTimeStartEnd extends React.Component{
   }
 
   handleKey(event){
-    if (event.target.name == "start"){
-    if ((this.state.start != this.state.prevStart) && (event.target.value.length == 5)){
+    if (event.target.name === "start"){
+    if ((this.state.start !== this.state.prevStart) && (event.target.value.length === 5)){
 
       this.props.newStartTime({
         variables:{studentId:this.state.studentId, settingsId:this.state.settingsId, start:`${this.state.start}:00`}
@@ -28,8 +27,8 @@ class DayTimeStartEnd extends React.Component{
         this.setState({start:start, prevStart:start})
       })
     }
-  }else if (event.target.name == "end") {
-    if ((this.state.end != this.state.prevEnd) && (event.target.value.length == 5)){
+  }else if (event.target.name === "end") {
+    if ((this.state.end !== this.state.prevEnd) && (event.target.value.length === 5)){
       this.props.newEndTime({
         variables:{studentId:this.state.studentId, settingsId:this.state.settingsId, end:`${this.state.end}:00`}
       }).then(({data})=>{
@@ -60,15 +59,15 @@ handleChange(event){
           change = re.test(event.target.value)
           break;
         case 3:
-        re = new RegExp('[0-2][0-9]\:')
+        re = new RegExp('[0-2][0-9]:')
         change = re.test(event.target.value)
           break;
           case 4:
-            re = new RegExp('[0-2][0-9]\:[0-5]')
+            re = new RegExp('[0-2][0-9]:[0-5]')
             change = re.test(event.target.value)
             break;
             case 5:
-              re = new RegExp('[0-2][0-9]\:[0-5][0-9]')
+              re = new RegExp('[0-2][0-9]:[0-5][0-9]')
               change = re.test(event.target.value)
               break;
       default:
@@ -77,7 +76,7 @@ handleChange(event){
     }
 if(change){
 
-  if(event.target.name == "start"){
+  if(event.target.name === "start"){
     this.setState({start:event.target.value})
   }else{
     this.setState({end:event.target.value})
@@ -99,7 +98,7 @@ if(change){
                 start
               </td>
               <td>
-                <input type="text" value={this.state.start} name ="start" onChange={this.handleChange} onKeyUp={this.handleKey}/>
+                <input type="text" value={this.state.start} name="start" onChange={this.handleChange} onKeyUp={this.handleKey}/>
 
               </td>
             </tr>

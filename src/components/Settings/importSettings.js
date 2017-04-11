@@ -1,9 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 import {graphql} from 'react-apollo'
 
 import {getSettings} from '../../graphql/queries'
-import {updateTypeSettings} from '../../graphql/mutations'
 import Courses from './courseSettings'
 import Lines from './typesSettings'
 class ImportSettings extends React.Component{
