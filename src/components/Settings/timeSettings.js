@@ -3,6 +3,7 @@ import {graphql} from 'react-apollo'
 import {getTimeSettings} from '../../graphql/queries'
 
 import DayTimeStartEnd from './dayTimeStartEnd'
+import AvgTimePerAssignmentCourse from './avgTimePerAssignmentCourse'
 class Timesettings extends React.Component{
   constructor(props){
     super(props)
@@ -15,7 +16,8 @@ class Timesettings extends React.Component{
       let settings = this.props.data.user.studentTimeSettings
       return(<div>
         <DayTimeStartEnd start={settings.start} end={settings.end} settingsId={settings.settingsID} studentId={settings.studentID}/>
-      </div>
+        <AvgTimePerAssignmentCourse courses={[]}/>
+          </div>
     )
 
     }
