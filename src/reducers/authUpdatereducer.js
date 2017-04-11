@@ -1,4 +1,4 @@
-import {AUTH_STATUS_ACTIVE, AUTH_STATUS_NOT_ACTIVE, UPDATE_AUTH, UPDATED_AUTH} from '../types/index'
+import { UPDATE_AUTH, UPDATED_AUTH} from '../types/index'
 
 export default (state=false, action) =>{
   switch (action.type) {

@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import _ from 'lodash'
 import {graphql, compose} from 'react-apollo'
 import {addCourse, removeCourse} from '../../graphql/mutations'
@@ -36,7 +35,7 @@ handleChange(event){
       let prevState = this.state.courses
       let addedCourse = data.addStudentCourse
       prevState.map((course)=>{
-        if(course.courseId == id){
+        if(course.courseId === id){
           course.selectedItem = addedCourse.selectedItem
         }
         return course
@@ -51,7 +50,7 @@ handleChange(event){
       let prevState = this.state.courses
       let removedCourse = data.removeStudentCourse
       prevState.map((course)=>{
-        if(course.courseId == id){
+        if(course.courseId === id){
           course.selectedItem = removedCourse.selectedItem
         }
         return course

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import personDefault from '../../assets/images/personDefault.svg'
 import {gql, graphql} from 'react-apollo'
 import {SingleLinks, LinksContainer} from './utils'
 import Signout from './signout'
@@ -35,7 +34,7 @@ loadHandler(){
         </LinksContainer>
     )
   }else{
-    <LinksContainer/>
+  return(  <LinksContainer/>)
   }
 }
 

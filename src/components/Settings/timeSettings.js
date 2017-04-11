@@ -1,10 +1,9 @@
 import React from 'react'
 import {graphql} from 'react-apollo'
+import {getTimeSettings} from '../../graphql/queries'
 
-import {getSettings} from '../../graphql/queries'
-import Courses from './courseSettings'
-import Lines from './typesSettings'
-class ImportSettings extends React.Component{
+import DayTimeStartEnd from './dayTimeStartEnd'
+class Timesettings extends React.Component{
   constructor(props){
     super(props)
     this.handleLoad = this.handleLoad.bind(this)
@@ -13,9 +12,9 @@ class ImportSettings extends React.Component{
 
   handleLoad(){
     if(!this.props.data.loading){
+      let settings = this.props.data.user.studentTimeSettings
       return(<div>
-        <Lines settings={this.props.data.user.studentSettings}/>
-        <Courses courses={this.props.data.user.courseSelected} studentId={"117016280903482792588"}/>
+        <DayTimeStartEnd start={settings.start} end={settings.end} settingsId={settings.settingsID} studentId={settings.studentID}/>
       </div>
     )
 
@@ -24,7 +23,7 @@ class ImportSettings extends React.Component{
     render(){
       return(
         <div>
-        <h1>settings</h1>
+        <h1>time </h1>
         {this.handleLoad()}
         </div>
       )
@@ -32,10 +31,10 @@ class ImportSettings extends React.Component{
   }
 
 
-export default graphql(getSettings,{
+export default graphql(getTimeSettings,{
   options:{
     variables:{
       studentId:"117016280903482792588"
     }
   }
-})(ImportSettings)
+})(Timesettings)
