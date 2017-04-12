@@ -2,6 +2,10 @@ import React from 'react'
 import _ from 'lodash'
 import {graphql, compose} from 'react-apollo'
 import {addCourse, removeCourse} from '../../graphql/mutations'
+
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {inititalFetchOfCourses} from '../../actions/courseAction'
 class Courses extends React.Component{
   constructor(props){
     super(props)
@@ -11,14 +15,25 @@ class Courses extends React.Component{
       let obj={
         courseId : course.courseId,
         courseName: course.courseName,
-        selectedItem: course.selectedItem
+        selectedItem: course.selectedItem,
+        avgAssignmentTime: course.avgAssignmentTime
       }
+
       array.push(obj)
     })
-
     this.state={studentId:props.studentId, courses:array}
     this.renderList = this.renderList.bind(this)
     this.handleChange = this.handleChange.bind(this)
+  }
+
+  componentDidMount(){
+    let selectedArray = []
+    _.forEach(this.state.courses, (course)=>{
+      if(course.selectedItem){
+        selectedArray.push(course)
+      }
+    })
+    this.props.inititalFetchOfCourses(selectedArray)
   }
 
 handleChange(event){
@@ -41,6 +56,13 @@ handleChange(event){
         return course
       })
         this.setState({courses:prevState})
+        let selectedArray = []
+        _.forEach(this.state.courses, (courses)=>{
+          if(courses.selectedItem){
+            selectedArray.push(courses)
+          }
+        })
+        this.props.inititalFetchOfCourses(selectedArray)
     })
   }else{
     this.props.removeStudentCourseMutation({
@@ -56,8 +78,17 @@ handleChange(event){
         return course
       })
         this.setState({courses:prevState})
+        let selectedArray = []
+        _.forEach(this.state.courses, (courses)=>{
+          if(courses.selectedItem){
+            selectedArray.push(courses)
+          }
+        })
+        this.props.inititalFetchOfCourses(selectedArray)
   })
 }
+
+
 }
   renderList(){
 
@@ -88,6 +119,11 @@ handleChange(event){
     }
   }
 
+  const mapDispatchToProps =(dispatch) =>{
+    return bindActionCreators({inititalFetchOfCourses},dispatch)
+  }
+
+Courses = connect(null, mapDispatchToProps)(Courses)
 const CoursesWithMutation = compose(
   graphql(addCourse, {name:'newStudentCourseMutation'}),
   graphql(removeCourse, {name:'removeStudentCourseMutation'})

@@ -8,7 +8,7 @@ const getSettings = gql`query getUserSetting($studentId: String!) {
       studentID
       value
     }
-     courseSelected{courseName courseId selectedItem}
+     courseSelected{courseName courseId selectedItem avgAssignmentTime}
   }
 }`
 
