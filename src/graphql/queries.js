@@ -11,6 +11,6 @@ const getSettings = gql`query getUserSetting($studentId: String!) {
      courseSelected{courseName courseId selectedItem avgAssignmentTime}
   }
 }`
-
+const LoginStatus = gql`{currenUserStatus{status studentID}googleLink}`
 const getTimeSettings = gql`query getTimeSettings($studentId: String!){user(studentID:$studentId){studentTimeSettings{settingsID start end studentID}}}`
-export {getSettings, getTimeSettings}
+export {getSettings, getTimeSettings, LoginStatus}
