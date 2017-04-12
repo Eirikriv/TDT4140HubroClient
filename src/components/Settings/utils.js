@@ -1,10 +1,18 @@
 import colors from '../../assets/colorSchema'
 import styled from 'styled-components'
 const Table = styled.table`
-text-align:left;
-width:100%;
-margin-left:30%;
+width:50%;
+margin-left:25%;
+font-size:18px;
+`;
+
+const TableBody = styled.tbody`
+`;
+const TableRowColumn = styled.td`
+font-size:18px;
 `
+
+const TableRow = styled.tr``
 const TR = styled.tr`
 `
 const TD = styled.td`
@@ -35,9 +43,15 @@ padding:5px;
 text-align:center;
 `
 
+const Outer = styled.div`
+min-height:100vh;
+width:100%;
+background-color:${colors.mainBackground}
+`
+
 const Outertable = styled.div`
 min-height: 20vh;
 width:100%;
 background-color:${colors.mainBackground}
 `
-export {Table, TR, TD, TH, DIV, TITLE, Input, Outertable}
+export {Table, TR, TD, TH, DIV, TITLE, Input, Outertable, TableRow, TableRowColumn, TableBody, Outer}

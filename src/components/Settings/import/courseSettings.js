@@ -7,6 +7,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {inititalFetchOfCourses} from '../../../actions/courseAction'
 
+import {Table,TableBody, TableRow, TableRowColumn} from '../utils'
 
 class Courses extends React.Component{
   constructor(props){
@@ -95,11 +96,11 @@ handleChange(event, isInputChecked){
 
   return( this.state.courses.map((course)=>{
     return(
-      <tr key={course.courseId}>
-        <td>
+      <TableRow key={course.courseId}>
+        <TableRowColumn>
           {course.courseName}
-        </td>
-        <td>
+        </TableRowColumn>
+        <TableRowColumn>
 
             <Toggle
               id={course.courseId}
@@ -109,21 +110,20 @@ handleChange(event, isInputChecked){
               />
 
 
-        </td>
-      </tr>
+        </TableRowColumn>
+      </TableRow>
     )
   }))
   }
     render(){
       return(
-        <div>
-      <h3>Courses</h3>
-        <table>
-        <tbody>
+
+        <Table>
+        <TableBody>
         {this.renderList()}
-        </tbody>
-        </table>
-      </div>
+        </TableBody>
+        </Table>
+    
       )
     }
   }

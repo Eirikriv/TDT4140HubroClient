@@ -3,8 +3,9 @@ import {graphql} from 'react-apollo'
 import {updateTypeSettings} from '../../../graphql/mutations'
 import _ from 'lodash'
 import Toggle from 'material-ui/Toggle';
+import styled from 'styled-components'
+import {Table,TableBody, TableRow, TableRowColumn} from '../utils'
 
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
  class Lines extends React.Component{
    constructor(props){
      super(props)
@@ -72,8 +73,8 @@ import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColu
 
     render(){
       return(
-        <Table selectable={false}>
-          
+        <Table >
+
         <TableBody>
         {this.renderList()}
       </TableBody>
