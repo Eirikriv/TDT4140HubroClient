@@ -27,7 +27,7 @@ class Navbar extends React.Component{
         <AppBar
           iconElementLeft={<Link to='/'><HomeIcon/></Link>}
           title={'Hubro'}
-          iconElementRight={this.state.status?<PrivateElements studentId={this.state.studentId}/>:<PublicElements googleLink={this.state.googleLink}/>}
+          iconElementRight={this.state.status?<PrivateElements studentId={this.state.studentId} loading={this.props.data.loading}/>:<PublicElements googleLink={this.state.googleLink} loading={this.props.data.loading}/>}
         />
       )
     }

@@ -8,6 +8,12 @@ export default class PublicElements extends React.Component{
     super(props)
     this.state={loading:true}
   }
+
+  componentWillReceiveProps(nextProps){
+    let googleLink = nextProps.googleLink
+    let loading = nextProps.loading
+    this.setState({googleLink,loading})
+  }
   render(){
     if(this.state.loading){
       return(
@@ -15,6 +21,12 @@ export default class PublicElements extends React.Component{
           <SingleLinks>
             Blogg
           </SingleLinks>
+            <SingleLinks>
+              Signup
+            </SingleLinks>
+            <SingleLinks>
+              Login
+            </SingleLinks>
         </div>
       )
     }
@@ -25,6 +37,16 @@ export default class PublicElements extends React.Component{
           Blogg
         </SingleLinks>
       </Link>
+        <a href={this.state.googleLink}>
+          <SingleLinks>
+            Signup
+          </SingleLinks>
+        </a>
+        <a href={this.state.googleLink}>
+          <SingleLinks>
+            Login
+          </SingleLinks>
+        </a>
       </div>
     )
   }
