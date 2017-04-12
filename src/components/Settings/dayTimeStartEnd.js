@@ -1,114 +1,98 @@
 import React from 'react'
 import {compose, graphql} from 'react-apollo'
 import {updateTimeEnd, updateTimeStart} from '../../graphql/mutations'
+import TimePicker from 'material-ui/TimePicker';
 import _ from 'lodash'
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 class DayTimeStartEnd extends React.Component{
   constructor(props){
     super(props)
     let start = _.split(props.start, ':', 3)
     let end = _.split(props.end, ':', 3)
-    start = `${start[0]}:${start[1]}`
-    end = `${end[0]}:${end[1]}`
-    this.state = {start, end,prevStart:start, prevEnd:end, studentId:props.studentId, settingsId:props.settingsId }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleKey = this.handleKey.bind(this)
+    let startDate = new Date()
+    let startHours = parseInt(start[0],10)
+    let startMinutes = parseInt(start[1],10)
+    startDate.setHours(startHours)
+    startDate.setMinutes(startMinutes)
+    let endDate = new Date()
+    let endHours = parseInt(end[0],10)
+    let endMinutes = parseInt(end[1],10)
+    endDate.setHours(endHours)
+    endDate.setMinutes(endMinutes)
+    this.state = {startDate, endDate, studentId:props.studentId, settingsId:props.settingsId }
+    this.handleEndChange = this.handleEndChange.bind(this)
+    this.handleStartChange = this.handleStartChange.bind(this)
   }
+handleEndChange(event, date){
+let houres = date.getHours().toString()
+let minutes = date.getMinutes().toString()
+let end = `${houres}:${minutes}:00`
+this.props.newEndTime({
+  variables:{studentId:this.state.studentId, settingsId:this.state.settingsId, end}
+}).then( ({data})=>{
+let newEnd = _.split(data.updateEndTime.end, ':', 3)
+let newEndDate = new Date()
+let newEndHours = parseInt(newEnd[0],10)
+let newEndMinutes = parseInt(newEnd[1],10)
+newEndDate.setHours(newEndHours)
+newEndDate.setMinutes(newEndMinutes)
+this.setState({end:newEndDate})
+})
 
-  handleKey(event){
-    if (event.target.name === "start"){
-    if ((this.state.start !== this.state.prevStart) && (event.target.value.length === 5)){
-
-      this.props.newStartTime({
-        variables:{studentId:this.state.studentId, settingsId:this.state.settingsId, start:`${this.state.start}:00`}
-      }).then(({data})=>{
-        let start = data.updateStartTime.start
-        start = _.split(start, ':', 3)
-        start = `${start[0]}:${start[1]}`
-        this.setState({start:start, prevStart:start})
-      })
-    }
-  }else if (event.target.name === "end") {
-    if ((this.state.end !== this.state.prevEnd) && (event.target.value.length === 5)){
-      this.props.newEndTime({
-        variables:{studentId:this.state.studentId, settingsId:this.state.settingsId, end:`${this.state.end}:00`}
-      }).then(({data})=>{
-        let end = data.updateEndTime.end
-        end = _.split(end, ':', 3)
-        end = `${end[0]}:${end[1]}`
-        this.setState({end:end, prevEnd:end})
-      })
-    }
-  }
-
-  }
-handleChange(event){
-  if(event.target.value.length <= 5){
-    let re =''
-    let change = false
-    let len = event.target.value.length
-    switch (len) {
-      case 0:
-        change = true
-        break;
-      case 1:
-        re = new RegExp('[0-2]')
-        change = re.test(event.target.value)
-        break;
-        case 2:
-          re = new RegExp('[0-2][0-9]')
-          change = re.test(event.target.value)
-          break;
-        case 3:
-        re = new RegExp('[0-2][0-9]:')
-        change = re.test(event.target.value)
-          break;
-          case 4:
-            re = new RegExp('[0-2][0-9]:[0-5]')
-            change = re.test(event.target.value)
-            break;
-            case 5:
-              re = new RegExp('[0-2][0-9]:[0-5][0-9]')
-              change = re.test(event.target.value)
-              break;
-      default:
-      break;
-
-    }
-if(change){
-
-  if(event.target.name === "start"){
-    this.setState({start:event.target.value})
-  }else{
-    this.setState({end:event.target.value})
-  }
-}
 
 }
+handleStartChange(event, date){
+  let houres = date.getHours().toString()
+  let minutes = date.getMinutes().toString()
+  let start = `${houres}:${minutes}:00`
+  this.props.newStartTime({
+    variables:{studentId:this.state.studentId, settingsId:this.state.settingsId, start}
+  }).then( ({data})=>{
+  let newStart = _.split(data.updateStartTime.start, ':', 3)
+  let newStartDate = new Date()
+  let newStartHours = parseInt(newStart[0],10)
+  let newStartMinutes = parseInt(newStart[1],10)
+  newStartDate.setHours(newStartHours)
+  newStartDate.setMinutes(newStartMinutes)
+  this.setState({start:newStartDate})
+  })
 }
+
     render(){
       return(
         <div>
         <h3>
-          time settings
+      When would you like Hubro to schedule events
         </h3>
         <table>
           <tbody>
             <tr>
               <td>
-                start
+                Start
               </td>
               <td>
-                <input type="text" value={this.state.start} name="start" onChange={this.handleChange} onKeyUp={this.handleKey}/>
-
+                <TimePicker
+                          format="24hr"
+                          hintText="Start time"
+                          value={this.state.startDate}
+                          onChange={this.handleStartChange}
+                        />
               </td>
             </tr>
             <tr>
               <td>
-                end
+                End
               </td>
               <td>
-                <input type="text" value={this.state.end} name="end" onChange={this.handleChange} onKeyUp={this.handleKey}/>
-              </td>
+                  <TimePicker
+                            format="24hr"
+                            hintText="End time"
+                            value={this.state.endDate}
+                            onChange={this.handleEndChange}
+                          />
+
+          </td>
             </tr>
           </tbody>
         </table>

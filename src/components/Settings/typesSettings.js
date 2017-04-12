@@ -2,11 +2,10 @@ import React from 'react'
 import {graphql} from 'react-apollo'
 import {updateTypeSettings} from '../../graphql/mutations'
 import _ from 'lodash'
+import Toggle from 'material-ui/Toggle';
  class Lines extends React.Component{
    constructor(props){
      super(props)
-
-
       let array = []
       let studentID = ''
       _.forEach(props.settings, (set)=>{
@@ -22,20 +21,19 @@ import _ from 'lodash'
       this.renderList = this.renderList.bind(this)
       this.handleChange = this.handleChange.bind(this)
    }
-   handleChange(event){
-     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const id = event.target.id
+   handleChange(event, isInputChecked){
+     let settingsName = event.target.name
+     let settingsId = event.target.id
+     let settingsValue = isInputChecked
 
     this.props.mutate({
-          variables: { studentId: this.state.studentID , settingsId:event.target.name , settingsName:event.target.id, settingsValue:value}
+          variables: { studentId: this.state.studentID , settingsId, settingsName, settingsValue}
         }).then(({data})=>{
         let prevStateSettings = this.state
         let updatedSettings = data.updateUserSettings
         prevStateSettings.settings.map((el)=>{
-          if (el.name === id){
+          if (el.name === settingsName){
             el.value = updatedSettings.value
-
           }
           return el
         })
@@ -55,7 +53,12 @@ import _ from 'lodash'
              {element.name}
            </td>
            <td>
-             <input id={element.name} name={element.settingsID} type="checkbox" checked={element.value} onChange={this.handleChange}/>
+             <Toggle
+               id={element.settingsID}
+               name={element.name}
+               toggled={element.value}
+               onToggle={this.handleChange}
+               />
            </td>
 
            </tr>
@@ -64,6 +67,7 @@ import _ from 'lodash'
      )
 
    }
+
     render(){
       return(
         <table>

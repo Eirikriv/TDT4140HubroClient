@@ -2,7 +2,7 @@ import React from 'react'
 import _ from 'lodash'
 import {graphql, compose} from 'react-apollo'
 import {addCourse, removeCourse} from '../../graphql/mutations'
-
+import Toggle from 'material-ui/Toggle';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {inititalFetchOfCourses} from '../../actions/courseAction'
@@ -36,22 +36,21 @@ class Courses extends React.Component{
     this.props.inititalFetchOfCourses(selectedArray)
   }
 
-handleChange(event){
-  const target = event.target;
-  const value = target.type === 'checkbox' ? target.checked : target.value;
-  const name = target.name;
-  const id = event.target.id
-    if (value){
-    //add
+handleChange(event, isInputChecked){
+  let courseName = event.target.name
+  let courseID = event.target.id
+  let courseValue = isInputChecked
+  if (courseValue){
     this.props.newStudentCourseMutation({
-      variables:{studentId:this.state.studentId, courseID:id, courseName:name }
+      variables:{studentId:this.state.studentId, courseID, courseName }
     }).then(({data})=>{
 
       let prevState = this.state.courses
       let addedCourse = data.addStudentCourse
       prevState.map((course)=>{
-        if(course.courseId === id){
+        if(course.courseId === courseID){
           course.selectedItem = addedCourse.selectedItem
+          course.avgAssignmentTime = addedCourse.avgAssignmentTime
         }
         return course
       })
@@ -66,13 +65,13 @@ handleChange(event){
     })
   }else{
     this.props.removeStudentCourseMutation({
-      variables:{studentId:this.state.studentId, courseID:id, courseName:name}
+      variables:{studentId:this.state.studentId, courseID, courseName}
     }).then(({data})=>{
 
       let prevState = this.state.courses
       let removedCourse = data.removeStudentCourse
       prevState.map((course)=>{
-        if(course.courseId === id){
+        if(course.courseId === courseID){
           course.selectedItem = removedCourse.selectedItem
         }
         return course
@@ -99,7 +98,15 @@ handleChange(event){
           {course.courseName}
         </td>
         <td>
-          <input name={course.courseName} id={course.courseId} type="checkbox" checked={course.selectedItem} onChange={this.handleChange}/>
+
+            <Toggle
+              id={course.courseId}
+              name={course.courseName}
+              toggled={course.selectedItem}
+              onToggle={this.handleChange}
+              />
+
+
         </td>
       </tr>
     )
