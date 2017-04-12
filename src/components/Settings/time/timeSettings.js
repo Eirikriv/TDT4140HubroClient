@@ -1,6 +1,6 @@
 import React from 'react'
 import {graphql} from 'react-apollo'
-import {getTimeSettings} from '../../graphql/queries'
+import {getTimeSettings} from '../../../graphql/queries'
 
 import DayTimeStartEnd from './dayTimeStartEnd'
 import AvgTimePerAssignmentCourse from './avgTimePerAssignmentCourse'
