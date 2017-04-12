@@ -2,7 +2,7 @@ import React from 'react'
 import _ from 'lodash'
 import {graphql, compose} from 'react-apollo'
 import {addCourse, removeCourse} from '../../graphql/mutations'
-
+import Toggle from 'material-ui/Toggle';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {inititalFetchOfCourses} from '../../actions/courseAction'
@@ -99,6 +99,7 @@ handleChange(event){
           {course.courseName}
         </td>
         <td>
+      
           <input name={course.courseName} id={course.courseId} type="checkbox" checked={course.selectedItem} onChange={this.handleChange}/>
         </td>
       </tr>
