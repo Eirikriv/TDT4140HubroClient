@@ -6,8 +6,6 @@ import Toggle from 'material-ui/Toggle';
  class Lines extends React.Component{
    constructor(props){
      super(props)
-
-
       let array = []
       let studentID = ''
       _.forEach(props.settings, (set)=>{
@@ -27,7 +25,7 @@ import Toggle from 'material-ui/Toggle';
      let settingsName = event.target.name
      let settingsId = event.target.id
      let settingsValue = isInputChecked
-    
+
     this.props.mutate({
           variables: { studentId: this.state.studentID , settingsId, settingsName, settingsValue}
         }).then(({data})=>{
@@ -70,7 +68,6 @@ import Toggle from 'material-ui/Toggle';
 
    }
 
-   //<input id={element.name} name={element.settingsID} type="checkbox" checked={element.value} onChange={this.handleChange}/>
     render(){
       return(
         <table>
