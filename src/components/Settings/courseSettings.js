@@ -40,9 +40,7 @@ handleChange(event, isInputChecked){
   let courseName = event.target.name
   let courseID = event.target.id
   let courseValue = isInputChecked
-
   if (courseValue){
-    //add
     this.props.newStudentCourseMutation({
       variables:{studentId:this.state.studentId, courseID, courseName }
     }).then(({data})=>{
