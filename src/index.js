@@ -7,7 +7,7 @@ import { createStore} from 'redux';
 import {Router, browserHistory} from 'react-router';
 import rootReducer from './reducers/index';
 import {ApolloClient, createNetworkInterface, ApolloProvider} from 'react-apollo';
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 const networkInterface = createNetworkInterface({
   uri: 'http://api.v1.hubro.tech/graphql'
 })
@@ -17,9 +17,12 @@ const client  = new ApolloClient({
 })
 let store = createStore(rootReducer)
 ReactDOM.render(
+  <MuiThemeProvider>
+
   <ApolloProvider client={client}>
 <Provider store={store}>
     <Router history={browserHistory} routes={routes}/>
 </Provider>
 </ApolloProvider>
+</MuiThemeProvider>
   ,document.querySelector('.container'));

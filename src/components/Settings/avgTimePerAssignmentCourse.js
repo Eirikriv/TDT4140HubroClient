@@ -6,12 +6,18 @@ class AvgTimePerAssignmentCourse extends React.Component{
     super(props)
     this.renderList = this.renderList.bind(this)
     this.state = {coursesSelected:props.coursesSelected}
+    this.handleChange = this.handleChange.bind(this)
   }
 componentWillReceiveProps(nextProps){
 //console.log(nextProps);
 this.setState({coursesSelected:nextProps.coursesSelected})
 }
 
+handleChange(event){
+  // let avgTime = event.target.value
+  // let courseId = event.target.id
+  // let courseName = event.target.name
+}
 renderList(){
 
   if (this.state.coursesSelected.length === 0){return}
@@ -23,7 +29,8 @@ renderList(){
             {course.courseName}
           </td>
           <td>
-            lol
+
+            <input type="text" id={course.courseId} name={course.courseName} value={course.avgAssignmentTime} onChange={this.handleChange}/>
           </td>
 
         </tr>
