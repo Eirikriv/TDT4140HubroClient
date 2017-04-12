@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import _ from 'lodash'
-import TimePicker from 'material-ui/TimePicker'
 import {graphql} from 'react-apollo'
 import TextField from 'material-ui/TextField';
 import {updateAvgAssignmentTime} from '../../graphql/mutations'
