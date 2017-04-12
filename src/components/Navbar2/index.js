@@ -6,6 +6,9 @@ import PrivateElements from './privateElements'
 import {Link} from 'react-router'
 import {graphql} from 'react-apollo'
 import {LoginStatus} from '../../graphql/queries'
+import {bindActionCreators} from 'redux'
+import {updateAuth} from '../../actions/authStatus'
+import {connect} from 'react-redux'
 
 class Navbar extends React.Component{
   constructor(props){
@@ -14,6 +17,10 @@ class Navbar extends React.Component{
   }
 
   componentWillReceiveProps(nextProps){
+    // if(nextProps.shouldRefetchAuth){
+    //   this.props.data.refetch()
+    //   this.props.updateAuth(false)
+    // }
     if(!nextProps.data.loading){
       let data = nextProps.data
       let googleLink = data.googleLink
@@ -23,6 +30,7 @@ class Navbar extends React.Component{
     }
   }
     render(){
+
       return(
         <AppBar
           iconElementLeft={<Link to='/'><HomeIcon/></Link>}
@@ -32,4 +40,14 @@ class Navbar extends React.Component{
       )
     }
   }
+
+  const mapDispatchToProps =(dispatch) =>{
+    return bindActionCreators({updateAuth},dispatch)
+  }
+const mapStateToProps =(state)=>{
+    return {
+      shouldRefetchAuth : state.shouldRefetchAuth,
+    }
+  }
+Navbar = connect(mapStateToProps,mapDispatchToProps)(Navbar)
 export default graphql(LoginStatus)(Navbar)

@@ -1,7 +1,7 @@
 import {Link} from 'react-router'
 import React from 'react'
 import {SingleLinks} from './utils'
-import defaultAvatar from '../../assets/images/personDefault.svg'
+import defaultAvatar from '../../assets/images/defaultAvatar.png'
 import Avatar from 'material-ui/Avatar'
 import IconMenu from 'material-ui/IconMenu'
 import MenuItem from 'material-ui/MenuItem';
@@ -9,20 +9,39 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import styled from 'styled-components'
 
-const DIV = styled.div`
-max-height:200px;
-`
-export default class PrivateElements extends React.Component{
+import {SignOutMutation} from '../../graphql/mutations'
+import {graphql} from 'react-apollo'
+import {UserQuery, LoginStatus} from '../../graphql/queries'
+import {bindActionCreators} from 'redux'
+import {updateAuth} from '../../actions/authStatus'
+import {connect} from 'react-redux'
+class PrivateElements extends React.Component{
   constructor(props){
     super(props)
     let studentId = props.studentId
-    this.state = {studentId}
+    this.state = {studentId, profilePictureUrl:defaultAvatar, studentName:''}
+  }
+  componentWillReceiveProps(nextProps){
+    if(!nextProps.data.loading){
+      let user = nextProps.data.user
+      let profilePictureUrl = user.profilePictureUrl
+      let studentName = user.studentName
+      this.setState({profilePictureUrl,studentName})
+      this.handleSignout = this.handleSignout.bind(this)
+    }
+  }
+  handleSignout(event){
+    this.props.mutate(
+    ).then(({data})=>{
+      this.props.updateAuth(true)
+      console.log(data);
+    })
   }
   render(){
     return(
       <div>
-    <Avatar src={defaultAvatar}/>
-    <SingleLinks>
+    <Avatar src={this.state.profilePictureUrl}/>
+    <SingleLinks onClick={this.handleSignout}>
         Sign out
       </SingleLinks>
       <Link to='/settings'>
@@ -35,7 +54,19 @@ export default class PrivateElements extends React.Component{
         Dashboard
       </SingleLinks>
     </Link>
+
     </div>
     )
   }
 }
+
+const mapDispatchToProps =(dispatch) =>{
+  return bindActionCreators({updateAuth},dispatch)
+}
+
+PrivateElements = connect(null,mapDispatchToProps)(PrivateElements)
+
+PrivateElements = graphql(SignOutMutation)(PrivateElements)
+export default graphql(UserQuery,{
+  options: (props) => { return { variables: { studentID: props.studentId } } }
+})(PrivateElements)
