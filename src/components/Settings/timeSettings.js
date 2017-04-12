@@ -16,7 +16,7 @@ class Timesettings extends React.Component{
       let settings = this.props.data.user.studentTimeSettings
       return(<div>
         <DayTimeStartEnd start={settings.start} end={settings.end} settingsId={settings.settingsID} studentId={settings.studentID}/>
-        <AvgTimePerAssignmentCourse />
+        <AvgTimePerAssignmentCourse studentId={settings.studentID}/>
           </div>
     )
 
