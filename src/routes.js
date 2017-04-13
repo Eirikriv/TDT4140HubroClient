@@ -8,7 +8,7 @@ import Settings from './components/Settings/index'
 export default(
   <Route path="/" component={App}>
 <IndexRoute component={Home}/>
-<Route path="user/settings" component={Settings}>
+<Route path="settings" component={Settings}>
 </Route>
   </Route>
 )

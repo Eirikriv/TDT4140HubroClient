@@ -1,57 +1,51 @@
-
 import React from 'react'
-import {gql, graphql} from 'react-apollo'
-import {OuterNavbar, Logo, Logotext, Home} from './utils'
-import Loader from './loader'
-import UserLinks from './userLinks'
-import PublicLinks from './publicLinks'
-import {connect} from 'react-redux'
+import AppBar from 'material-ui/AppBar';
+import HomeIcon from './homeIcon'
+import PublicElements from './publicElements'
+import PrivateElements from './privateElements'
+import {Link} from 'react-router'
+import {graphql} from 'react-apollo'
+import {LoginStatus} from '../../graphql/queries'
 import {bindActionCreators} from 'redux'
-const LoginStatus = gql`{currenUserStatus{status studentID}googleLink}`
 import {updateAuth} from '../../actions/authStatus'
+import {connect} from 'react-redux'
+
 class Navbar extends React.Component{
-  constructor(props) {
-    super(props);
-    this.loadHandler = this.loadHandler.bind(this);
-  }
-  shouldComponentUpdate(nextProps, nextState){
-    if(nextProps.shouldRefetchAuth.value){
-      this.props.data.refetch()
-      this.props.updateAuth(false)
-    }
-    return true
-  }
-  loadHandler(){
-
-    if (this.props.data.loading) return <Loader/>
-    if (this.props.data.currenUserStatus.status) {
-      return <UserLinks studentID={this.props.data.currenUserStatus.studentID}/>
-    }
-    return <PublicLinks googleLink={this.props.data.googleLink}/>
+  constructor(props){
+    super(props)
+    this.state = {status:false, googleLink:'', studentId:'' }
   }
 
-  render(){
-    return (
-        <OuterNavbar>
-          <Home>
-              <Logo></Logo>
-              <Logotext>
-                Hubro
-              </Logotext>
-          </Home>
-          {this.loadHandler()}
-        </OuterNavbar>
-    )
+  
+  componentWillReceiveProps(nextProps){
+
+    if(!nextProps.data.loading){
+      let data = nextProps.data
+      let googleLink = data.googleLink
+      let status = data.currenUserStatus.status
+      let studentId = data.currenUserStatus.studentID
+      this.setState({status,googleLink,studentId})
+    }
   }
-}
+    render(){
+
+      return(
+        <AppBar
+          iconElementLeft={<Link to='/'><HomeIcon/></Link>}
+          title={'Hubro'}
+          iconElementRight={this.state.status?<PrivateElements studentId={this.state.studentId} loading={this.props.data.loading}/>:<PublicElements googleLink={this.state.googleLink} loading={this.props.data.loading}/>}
+        />
+      )
+    }
+  }
+
+  const mapDispatchToProps =(dispatch) =>{
+    return bindActionCreators({updateAuth},dispatch)
+  }
 const mapStateToProps =(state)=>{
-  return {
-    shouldRefetchAuth : state.shouldRefetchAuth,
+    return {
+      shouldRefetchAuth : state.shouldRefetchAuth,
+    }
   }
-}
-const mapDispatchToProps =(dispatch) =>{
-  return bindActionCreators({updateAuth},dispatch)
-}
-
-Navbar = connect(mapStateToProps, mapDispatchToProps)(Navbar)
+Navbar = connect(mapStateToProps,mapDispatchToProps)(Navbar)
 export default graphql(LoginStatus)(Navbar)
