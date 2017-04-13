@@ -1,9 +1,7 @@
 import {Link} from 'react-router'
 import React from 'react'
-import {SingleLinks} from './utils'
 import {graphql} from 'react-apollo'
 import {LoginStatus} from '../../graphql/queries'
-
 class PublicElements extends React.Component{
   constructor(props){
     super(props)
@@ -19,31 +17,26 @@ class PublicElements extends React.Component{
     if(this.state.loading){
       return(
         <div>
-            <SingleLinks>
+            <div className="nav-links">
               Login
-            </SingleLinks>
-            <SingleLinks>
+            </div >
+            <div className="nav-links">
               Signup
-            </SingleLinks>
+            </div >
         </div>
       )
     }
     return(
       <div>
-      <Link to='/blogg'>
-        <SingleLinks>
-          Blogg
-        </SingleLinks>
-      </Link>
         <a href={this.state.googleLink}>
-          <SingleLinks>
+          <div className="nav-links">
             Signup
-          </SingleLinks>
+          </div >
         </a>
         <a href={this.state.googleLink}>
-          <SingleLinks>
+          <div className="nav-links">
             Login
-          </SingleLinks>
+          </div >
         </a>
       </div>
     )

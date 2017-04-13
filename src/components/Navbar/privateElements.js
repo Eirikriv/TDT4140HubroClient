@@ -1,6 +1,5 @@
 import {Link} from 'react-router'
 import React from 'react'
-import {SingleLinks} from './utils'
 import defaultAvatar from '../../assets/images/defaultAvatar.png'
 import Avatar from 'material-ui/Avatar'
 
@@ -36,23 +35,25 @@ class PrivateElements extends React.Component{
   }
   render(){
     return(
-      <div>
-    <Avatar src={this.state.profilePictureUrl}/>
-    <SingleLinks onClick={this.handleSignout}>
+      <ul className="nav-link-container">
+  <li>
+      <Avatar src={this.state.profilePictureUrl} className="nav-avatar"/>
+    </li>
+  <li className="nav-links" onClick={this.handleSignout}>
         Sign out
-      </SingleLinks>
+      </li >
       <Link to='/settings'>
-      <SingleLinks>
+      <li className="nav-links">
         Settings
-      </SingleLinks>
+      </li >
     </Link>
     <Link to='/dashboard'>
-      <SingleLinks>
+      <li className="nav-links">
         Dashboard
-      </SingleLinks>
+      </li>
     </Link>
+  </ul>
 
-    </div>
     )
   }
 }
