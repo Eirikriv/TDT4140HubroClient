@@ -7,7 +7,6 @@ import Lines from './typesSettings'
 import CircularProgress from 'material-ui/CircularProgress';
 //<CircularProgress size={100} thickness={5} />
 import styled from 'styled-components'
-const CstudentId="117016280903482792588"
 
 const ImportSettingsDiv = styled.div`
 height:30vh;

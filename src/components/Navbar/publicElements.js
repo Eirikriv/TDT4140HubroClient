@@ -19,14 +19,11 @@ class PublicElements extends React.Component{
     if(this.state.loading){
       return(
         <div>
-          <SingleLinks>
-            Blogg
-          </SingleLinks>
-            <SingleLinks>
-              Signup
-            </SingleLinks>
             <SingleLinks>
               Login
+            </SingleLinks>
+            <SingleLinks>
+              Signup
             </SingleLinks>
         </div>
       )
