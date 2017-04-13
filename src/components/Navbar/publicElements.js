@@ -2,6 +2,7 @@ import {Link} from 'react-router'
 import React from 'react'
 import {graphql} from 'react-apollo'
 import {LoginStatus} from '../../graphql/queries'
+
 class PublicElements extends React.Component{
   constructor(props){
     super(props)
@@ -16,29 +17,37 @@ class PublicElements extends React.Component{
   render(){
     if(this.state.loading){
       return(
-        <div>
-            <div className="nav-links">
+        <ul className="nav-links-container">
+            <li className="nav-link">
+              <span className="nav-link-not-active">
               Login
-            </div >
-            <div className="nav-links">
+              </span>
+            </li >
+            <li className="nav-link">
+              <span className="nav-link-not-active">
               Signup
-            </div >
-        </div>
+              </span>
+            </li >
+        </ul>
       )
     }
     return(
-      <div>
+      <ul className="nav-links-container">
+        <li className="nav-link">
         <a href={this.state.googleLink}>
-          <div className="nav-links">
+          <span>
             Signup
-          </div >
+          </span>
         </a>
-        <a href={this.state.googleLink}>
-          <div className="nav-links">
+      </li >
+          <li className="nav-link">
+            <a href={this.state.googleLink}>
+              <span>
             Login
-          </div >
-        </a>
-      </div>
+          </span>
+            </a>
+          </li >
+      </ul>
     )
   }
 }

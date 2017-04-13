@@ -35,23 +35,27 @@ class PrivateElements extends React.Component{
   }
   render(){
     return(
-      <ul className="nav-link-container">
-  <li>
+      <ul className="nav-links-container">
+  <li className="nav-link-special">
       <Avatar src={this.state.profilePictureUrl} className="nav-avatar"/>
     </li>
-  <li className="nav-links" onClick={this.handleSignout}>
+  <li className="nav-link" onClick={this.handleSignout}>
+      <span>
         Sign out
+      </span>
       </li >
+  <li className="nav-link">
+    <span>
       <Link to='/settings'>
-      <li className="nav-links">
         Settings
-      </li >
-    </Link>
-    <Link to='/dashboard'>
-      <li className="nav-links">
+      </Link>
+    </span>
+  </li >
+  <li className="nav-link">
+        <Link to='/dashboard'>
         Dashboard
-      </li>
     </Link>
+  </li>
   </ul>
 
     )
