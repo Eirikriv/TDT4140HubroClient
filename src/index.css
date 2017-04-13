@@ -95,7 +95,7 @@ section h1{
 .section-block-how-it-works{
   height: 80vh;
 }
-.section-block-how-it-works table{
+section table{
   margin: auto;
   padding-top: 20px;
 
@@ -103,7 +103,7 @@ section h1{
 .section-block-how-it-works td{
   padding: 30px;
 }
-.section-block-how-it-works figcaption{
+section figcaption{
   padding-bottom: 10px;
   color: #333333;
   font-style: italic;
@@ -116,11 +116,27 @@ section h1{
   display: block;
   margin: auto;
 }
-.section-block-how-it-works figure{
+section figure{
   display: inline;
 }
 
 /*HOW it works end*/
+/*The team */
+.section-block-the-team img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+}
+.section-block-the-team{
+  height: 50vh;
+}
+.section-block-the-team td{
+  padding: 20px;
+  text-align: center;
+}
+/*The team end*/
 /*NAV BAR*/
 a:link, a:visited{
   text-decoration: none;
