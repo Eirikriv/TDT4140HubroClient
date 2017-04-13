@@ -8,7 +8,6 @@ import Welcome from './welcomeComponent'
 import GetStarted from './getStarted'
 const Quote = styled.div`
 color:${colors.textWhite};
-font-family:Helvetica;
 max-width:450px;
 text-align:center;
 font-size: 30px;

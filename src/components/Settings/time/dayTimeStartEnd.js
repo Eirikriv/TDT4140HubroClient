@@ -1,6 +1,7 @@
 import React from 'react'
 import {compose, graphql} from 'react-apollo'
 import {updateTimeEnd, updateTimeStart} from '../../../graphql/mutations'
+import {getTimeSettings} from '../../../graphql/queries'
 import TimePicker from 'material-ui/TimePicker';
 import _ from 'lodash'
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -29,7 +30,9 @@ let houres = date.getHours().toString()
 let minutes = date.getMinutes().toString()
 let end = `${houres}:${minutes}:00`
 this.props.newEndTime({
-  variables:{studentId:this.state.studentId, settingsId:this.state.settingsId, end}
+  variables:{studentId:this.state.studentId, settingsId:this.state.settingsId, end},
+  refetchQueries:[{query:getTimeSettings,
+  variables:{studentId:this.state.studentId}}]
 }).then( ({data})=>{
 let newEnd = _.split(data.updateEndTime.end, ':', 3)
 let newEndDate = new Date()
@@ -47,7 +50,9 @@ handleStartChange(event, date){
   let minutes = date.getMinutes().toString()
   let start = `${houres}:${minutes}:00`
   this.props.newStartTime({
-    variables:{studentId:this.state.studentId, settingsId:this.state.settingsId, start}
+    variables:{studentId:this.state.studentId, settingsId:this.state.settingsId, start},
+    refetchQueries:[{query:getTimeSettings,
+    variables:{studentId:this.state.studentId}}]
   }).then( ({data})=>{
   let newStart = _.split(data.updateStartTime.start, ':', 3)
   let newStartDate = new Date()

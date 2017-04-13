@@ -6,7 +6,6 @@ import AvgTimePerAssignmentCourse from './avgTimePerAssignmentCourse'
 class Timesettings extends React.Component{
   constructor(props){
     super(props)
-console.log(props);
     this.handleLoad = this.handleLoad.bind(this)
   }
 

@@ -4,6 +4,7 @@ import _ from 'lodash'
 import {graphql} from 'react-apollo'
 import TextField from 'material-ui/TextField';
 import {updateAvgAssignmentTime} from '../../../graphql/mutations'
+import {getSettings} from '../../../graphql/queries'
 class AvgTimePerAssignmentCourse extends React.Component{
   constructor(props){
     super(props)
@@ -49,11 +50,12 @@ this.setState({coursesSelected:newState})
   }
 let valid = new RegExp('^[0-9][0-9]:[0-5][0-9]$')
   if(valid.test(newStringValue)){
-    console.log('mutate');
     this.props.mutate({
       variables:{
         studentId: this.state.studentId,courseID, courseName, avgAssignmentTime
-      }
+      },
+      refetchQueries:[{query:getSettings,
+      variables:{studentId:this.state.studentId}}]
     }).then(({data})=> console.log(data))
   }
 }
