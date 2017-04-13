@@ -172,7 +172,25 @@ a:link, a:visited{
   display: inline;
   margin: 0 auto;
 }
+.navbar-background {
+  z-index: 5 !important;
+  position: fixed !important;
+}
 /*END NAVBAR*/
+/*Start footer*/
+footer{
+  width: 100%;
+  height: 150px;
+  background-color: #093457;
+}
+footer section{
+  height: 50px;
+  border-radius: 0;
+  padding-top: 20px;
+  margin: 0 auto;
+  background-color: inherit;
+}
+/*End footer*/
 /*@media screen and (max-width:600px){
   .coverPhoto{
     height: 10vh;

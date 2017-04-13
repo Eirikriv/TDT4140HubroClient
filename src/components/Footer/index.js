@@ -2,7 +2,8 @@ import React from 'react'
 export default  (props)=>{
   return(
     <footer>
-      som some
+      <section>
+      </section>
     </footer>
   )
 }

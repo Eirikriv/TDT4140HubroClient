@@ -35,6 +35,7 @@ class Navbar extends React.Component{
           iconElementLeft={<HomeSectionIcon/>}
           title={'Hubro'}
           iconElementRight={this.state.status?<PrivateElements studentId={this.state.studentId} loading={this.props.data.loading}/>:<PublicElements googleLink={this.state.googleLink} loading={this.props.data.loading}/>}
+          className="navbar-background"
         />
       )
     }
