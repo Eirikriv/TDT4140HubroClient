@@ -8,7 +8,7 @@ import Paragraph from './paragraph'
 const Outer = styled.div`
 background-color:${colors.compBackground};
 height:100%;
-width: 100%;
+width: 60%;
 `
 const WelcomeTag = styled.div`
 widt:100%;

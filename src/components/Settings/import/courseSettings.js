@@ -2,6 +2,7 @@ import React from 'react'
 import _ from 'lodash'
 import {graphql, compose} from 'react-apollo'
 import {addCourse, removeCourse} from '../../../graphql/mutations'
+import {getSettings} from '../../../graphql/queries'
 import Toggle from 'material-ui/Toggle';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
@@ -45,7 +46,9 @@ handleChange(event, isInputChecked){
   let courseValue = isInputChecked
   if (courseValue){
     this.props.newStudentCourseMutation({
-      variables:{studentId:this.state.studentId, courseID, courseName }
+      variables:{studentId:this.state.studentId, courseID, courseName },
+      refetchQueries:[{query:getSettings,
+      variables:{studentId:this.state.studentId}}]
     }).then(({data})=>{
 
       let prevState = this.state.courses
@@ -68,7 +71,9 @@ handleChange(event, isInputChecked){
     })
   }else{
     this.props.removeStudentCourseMutation({
-      variables:{studentId:this.state.studentId, courseID, courseName}
+      variables:{studentId:this.state.studentId, courseID, courseName},
+      refetchQueries:[{query:getSettings,
+      variables:{studentId:this.state.studentId}}]
     }).then(({data})=>{
 
       let prevState = this.state.courses
@@ -123,7 +128,7 @@ handleChange(event, isInputChecked){
         {this.renderList()}
         </TableBody>
         </Table>
-    
+
       )
     }
   }

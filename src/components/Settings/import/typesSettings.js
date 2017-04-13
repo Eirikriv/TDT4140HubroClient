@@ -1,6 +1,7 @@
 import React from 'react'
 import {graphql} from 'react-apollo'
 import {updateTypeSettings} from '../../../graphql/mutations'
+import {getSettings} from '../../../graphql/queries'
 import _ from 'lodash'
 import Toggle from 'material-ui/Toggle';
 import {Table,TableBody, TableRow, TableRowColumn} from '../utils'
@@ -29,7 +30,9 @@ import {Table,TableBody, TableRow, TableRowColumn} from '../utils'
      let settingsValue = isInputChecked
 
     this.props.mutate({
-          variables: { studentId: this.state.studentID , settingsId, settingsName, settingsValue}
+          variables: { studentId: this.state.studentID , settingsId, settingsName, settingsValue},
+          refetchQueries:[{query:getSettings,
+          variables:{studentId:this.state.studentID}}]
         }).then(({data})=>{
         let prevStateSettings = this.state
         let updatedSettings = data.updateUserSettings
