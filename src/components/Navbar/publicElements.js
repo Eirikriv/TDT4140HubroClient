@@ -1,9 +1,10 @@
 import {Link} from 'react-router'
 import React from 'react'
 import {SingleLinks} from './utils'
+import {graphql} from 'react-apollo'
+import {LoginStatus} from '../../graphql/queries'
 
-
-export default class PublicElements extends React.Component{
+class PublicElements extends React.Component{
   constructor(props){
     super(props)
     this.state={loading:true}
@@ -18,14 +19,11 @@ export default class PublicElements extends React.Component{
     if(this.state.loading){
       return(
         <div>
-          <SingleLinks>
-            Blogg
-          </SingleLinks>
-            <SingleLinks>
-              Signup
-            </SingleLinks>
             <SingleLinks>
               Login
+            </SingleLinks>
+            <SingleLinks>
+              Signup
             </SingleLinks>
         </div>
       )
@@ -51,3 +49,4 @@ export default class PublicElements extends React.Component{
     )
   }
 }
+export default graphql(LoginStatus)(PublicElements)

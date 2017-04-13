@@ -6,7 +6,7 @@ import Avatar from 'material-ui/Avatar'
 
 import {SignOutMutation} from '../../graphql/mutations'
 import {graphql} from 'react-apollo'
-import {UserQuery} from '../../graphql/queries'
+import {UserQuery, LoginStatus} from '../../graphql/queries'
 import {bindActionCreators} from 'redux'
 import {updateAuth} from '../../actions/authStatus'
 import {connect} from 'react-redux'
@@ -27,7 +27,9 @@ class PrivateElements extends React.Component{
     }
   }
   handleSignout(event){
-    this.props.mutate(
+    this.props.mutate({
+      refetchQueries:[{query:LoginStatus}]
+    }
     ).then(({data})=>{
       this.props.updateAuth(true)
     })

@@ -1,8 +1,10 @@
 import React from 'react'
 import {graphql} from 'react-apollo'
-import {updateTypeSettings} from '../../graphql/mutations'
+import {updateTypeSettings} from '../../../graphql/mutations'
 import _ from 'lodash'
 import Toggle from 'material-ui/Toggle';
+import {Table,TableBody, TableRow, TableRowColumn} from '../utils'
+
  class Lines extends React.Component{
    constructor(props){
      super(props)
@@ -48,20 +50,20 @@ import Toggle from 'material-ui/Toggle';
      return(
        this.state.settings.map((element)=>{
          return(
-           <tr key={element.name}>
-           <td>
+           <TableRow key={element.name}>
+           <TableRowColumn>
              {element.name}
-           </td>
-           <td>
+           </TableRowColumn>
+           <TableRowColumn>
              <Toggle
                id={element.settingsID}
                name={element.name}
                toggled={element.value}
                onToggle={this.handleChange}
                />
-           </td>
+           </TableRowColumn>
 
-           </tr>
+           </TableRow>
          )
        })
      )
@@ -70,11 +72,12 @@ import Toggle from 'material-ui/Toggle';
 
     render(){
       return(
-        <table>
-        <tbody>
+        <Table >
+
+        <TableBody>
         {this.renderList()}
-        </tbody>
-        </table>
+      </TableBody>
+        </Table>
       )
     }
   }

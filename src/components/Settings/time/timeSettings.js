@@ -1,12 +1,12 @@
 import React from 'react'
 import {graphql} from 'react-apollo'
-import {getTimeSettings} from '../../graphql/queries'
-
+import {getTimeSettings} from '../../../graphql/queries'
 import DayTimeStartEnd from './dayTimeStartEnd'
 import AvgTimePerAssignmentCourse from './avgTimePerAssignmentCourse'
 class Timesettings extends React.Component{
   constructor(props){
     super(props)
+console.log(props);
     this.handleLoad = this.handleLoad.bind(this)
   }
 
@@ -34,9 +34,5 @@ class Timesettings extends React.Component{
 
 
 export default graphql(getTimeSettings,{
-  options:{
-    variables:{
-      studentId:"117016280903482792588"
-    }
-  }
+  options: ({ studentId }) => ({ variables: { studentId } }),
 })(Timesettings)

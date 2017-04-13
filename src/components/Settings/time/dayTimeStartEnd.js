@@ -1,6 +1,6 @@
 import React from 'react'
 import {compose, graphql} from 'react-apollo'
-import {updateTimeEnd, updateTimeStart} from '../../graphql/mutations'
+import {updateTimeEnd, updateTimeStart} from '../../../graphql/mutations'
 import TimePicker from 'material-ui/TimePicker';
 import _ from 'lodash'
 import injectTapEventPlugin from 'react-tap-event-plugin';
