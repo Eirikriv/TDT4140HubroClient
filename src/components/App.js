@@ -5,10 +5,10 @@ import Navbar from './Navbar/index'
 class App extends Component {
   render() {
     return (
-      <Outer>
+      <div className="app">
         <Navbar/>
         {this.props.children}
-	</Outer>
+	</div>
     )
   }
 }
