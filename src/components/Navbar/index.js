@@ -16,11 +16,9 @@ class Navbar extends React.Component{
     this.state = {status:false, googleLink:'', studentId:'' }
   }
 
+  
   componentWillReceiveProps(nextProps){
-    // if(nextProps.shouldRefetchAuth){
-    //   this.props.data.refetch()
-    //   this.props.updateAuth(false)
-    // }
+
     if(!nextProps.data.loading){
       let data = nextProps.data
       let googleLink = data.googleLink

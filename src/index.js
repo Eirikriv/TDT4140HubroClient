@@ -12,8 +12,10 @@ const networkInterface = createNetworkInterface({
   uri: 'http://api.v1.hubro.tech/graphql'
 })
 
+
 const client  = new ApolloClient({
-  networkInterface:networkInterface
+  networkInterface:networkInterface,
+  dataIdFromObject: o => o.id
 })
 let store = createStore(rootReducer)
 ReactDOM.render(
