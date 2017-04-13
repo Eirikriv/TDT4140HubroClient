@@ -33,7 +33,7 @@ html{
   background-position: center;
   background-size: cover;
 }
-.section-blocks{
+section {
   margin: 10vh auto ;
   width: 60vw;
   padding: 2em;
@@ -41,6 +41,13 @@ html{
   border-radius: 2em;
   height: 30vh;
   font-size: 2em;
+}
+section h1{
+  font-style: italic;
+  font-weight: lighter;
+  color: #fcc438;
+  text-align: left;
+  font-size: 3em;
 }
 /* Welcome block*/
 .welcome-left{
@@ -74,6 +81,46 @@ html{
   margin: auto;
   padding: 0;
 }
+
+/* Get started*/
+.section-block-get-started{
+  height: 20vh;
+}
+.section-block-get-started .section-title{
+  text-align: left;
+}
+/* Get started END*/
+
+/*HOW it works */
+.section-block-how-it-works{
+  height: 80vh;
+}
+.section-block-how-it-works table{
+  margin: auto;
+  padding-top: 20px;
+
+}
+.section-block-how-it-works td{
+  padding: 30px;
+}
+.section-block-how-it-works figcaption{
+  padding-bottom: 10px;
+  color: #333333;
+  font-style: italic;
+  font-weight: 200;
+}
+.section-block-how-it-works img{
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  display: block;
+  margin: auto;
+}
+.section-block-how-it-works figure{
+  display: inline;
+}
+
+/*HOW it works end*/
 /*NAV BAR*/
 a:link, a:visited{
   text-decoration: none;
