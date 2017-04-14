@@ -15,12 +15,12 @@ class ImportSettings extends React.Component{
 
 componentWillReceiveProps(nextProps){
 }
+//<Courses courses={this.props.data.user.courseSelected} studentId={this.state.studentId}/>
   handleLoad(){
     if(!this.props.data.loading){
 
       return(<section className="section-settings-import">
         <Lines settings={this.props.data.user.studentSettings}/>
-        <Courses courses={this.props.data.user.courseSelected} studentId={this.state.studentId}/>
       </section>
     )
   }else {
@@ -33,9 +33,7 @@ componentWillReceiveProps(nextProps){
 
       return(
         <section className="section-block-settings-import">
-          <h3>Import settings</h3>
-          <h5>- What do you want to import?</h5>
-          {this.handleLoad()}
+        {this.handleLoad()}
       </section>
       )
     }

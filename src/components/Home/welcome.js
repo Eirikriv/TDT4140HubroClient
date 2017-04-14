@@ -1,7 +1,8 @@
 import React from 'react'
+import hubroLogo from '../../assets/images/hubroLogo.svg'
 export default (props)=>{
   return(
-    <section className="section-blocks">
+    <section className="section-block" id="welcome">
         <div className="welcome-right">
       <h1 className="section-title">Welcome to Hubro!</h1>
       <article>
@@ -9,7 +10,7 @@ export default (props)=>{
       </article>
     </div>
           <div className="welcome-left">
-          <div className="big-hubro-logo"></div>
+          <img className="big-hubro-logo" id="welcome-logo" src={hubroLogo}></img>
         </div>
   </section>)
 }

@@ -44,9 +44,8 @@ this.setState({status,studentId})
     return(
       <div className="settingsPage">
         <div className="filler"/>
-      <section className="settings-content">
+        <section className="settings-content">
         <ImportSettings studentId={this.state.studentId}/>
-
       </section>
       <div className="filler"/>
     </div>

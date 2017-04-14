@@ -62,7 +62,7 @@ import Toggle from 'material-ui/Toggle';
                name={element.name}
                toggled={element.value}
                onToggle={this.handleChange}
-               />
+               className="settings-toggle-type"/>
            </td>
 
            </tr>

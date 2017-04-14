@@ -1,6 +1,6 @@
 import React from 'react'
 export default (props)=>{
-  return(<section className="section-block-how-it-works">
+  return(<section className="section-block" id="how-it-works">
         <h1>How it works</h1>
         <div>
 <table>

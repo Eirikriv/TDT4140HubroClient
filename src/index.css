@@ -1,25 +1,25 @@
 
 
 body {
-  height: 100%;
+  min-height: 100%;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   font-size: 62.5%;
 }
 html{
-  height: 100%;
+  min-height: 100%;
 }
 
 [data-reactroot]
-        {height: 100% !important; }
+        {min-height: 100% !important; }
 
 *{
   margin: 0;
   padding: 0;
 }
 .container{
-  height: 100%;
+  min-height: 100%;
 }
 .app{
   width: 100%;
@@ -29,112 +29,104 @@ html{
   background-image: url('./assets/images/abstractBackground.jpg');
   background-repeat: no-repeat;
   width: 100%;
-  height: 40vh;
+  height: 500px;
   background-position: center;
   background-size: cover;
 }
-section {
-  margin: 10vh auto ;
-  width: 60vw;
-  padding: 2em;
+/* general classes*/
+.section-block{
+  width: 950px;
+  height: 500px;
+  border-radius: 30px;
+  margin: 50px auto;
+  padding: 30px;
   background-color: #f0f0f0;
-  border-radius: 2em;
-  height: 30vh;
+}
+.section-block h1{
+  font-style: italic;
+ font-weight: lighter;
+ color: #fcc438;
+ text-align: left;
+ font-size: 3em;
+}
+.section-block p{
+  margin: 1em;
   font-size: 2em;
 }
-section h1{
-  font-style: italic;
-  font-weight: lighter;
-  color: #fcc438;
-  text-align: left;
-  font-size: 3em;
-}
-/* Welcome block*/
-.welcome-left{
-  width:20vw;
-  height: 100%;
-  margin: 0 auto;
-  float: left;
-}
-.welcome-right{
-  width:40vw;
-  height: 100%;
-  float: right;
-}
 
-.section-title{
-  font-style: italic;
-  font-weight: lighter;
-  color: #fcc438;
-  text-align: center;
-  font-size: 3em;
-}
-
-.section-blocks p {
-  margin: 1em;
-}
-.welcome-left .big-hubro-logo{
-  width: 30vw;
-  height: 30vh;
-  background-image: url('./assets/images/hubroLogo.svg');
-  background-repeat: no-repeat;
-  margin: auto;
-  padding: 0;
-}
-
-/* Get started*/
-.section-block-get-started{
-  height: 20vh;
-}
-.section-block-get-started .section-title{
-  text-align: left;
-}
-/* Get started END*/
-
-/*HOW it works */
-.section-block-how-it-works{
-  height: 80vh;
-}
-section table{
-  margin: auto;
-  padding-top: 20px;
-
-}
-.section-block-how-it-works td{
-  padding: 30px;
-}
-section figcaption{
+.section-block figcaption{
   padding-bottom: 10px;
   color: #333333;
   font-style: italic;
   font-weight: 200;
+  font-size: 15px;
 }
-.section-block-how-it-works img{
+.section-block figure{
+  display: inline;
+}
+/*welcome*/
+.welcome-right{
+  width:500px;
+  height: 100%;
+  float: right;
+}
+.welcome-right h1{
+  text-align: center;;
+}
+.welcome-left{
+  width: 400px;
+  height: 100%;
+  float: left;
+}
+ #welcome{
+  height: 400px;
+}
+/*End welcome*/
+/* Get started*/
+#get-started{
+  height: 200px;
+}
+
+/* Get started END*/
+
+/*HOW it works */
+#how-it-works {
+  height: 650px;
+}
+#how-it-works table{
+  width: 700px;
+  margin: 20px auto;
+}
+#how-it-works td{
+  padding: 20px;
+}
+
+#how-it-works img{
   border-radius: 50%;
   height: 200px;
   width: 200px;
   display: block;
   margin: auto;
 }
-section figure{
-  display: inline;
+#how-it-works figcaption{
+  text-align: center;
 }
-
 /*HOW it works end*/
 /*The team */
-.section-block-the-team img {
-  height: 150px;
-  width: 150px;
+#the-team img{
   border-radius: 50%;
   display: block;
-  margin: auto;
 }
-.section-block-the-team{
-  height: 50vh;
+#the-team table{
+  padding-top: 30px;
+  width: 700px;
+  margin: 0 auto;
 }
-.section-block-the-team td{
-  padding: 20px;
+#the-team figcaption{
   text-align: center;
+}
+#the-team td{
+  padding: 10px;
 }
 /*The team end*/
 /*NAV BAR*/
@@ -182,6 +174,9 @@ footer{
   width: 100%;
   height: 150px;
   background-color: #093457;
+
+  left: 0;
+  bottom: 0;
 }
 footer section{
   height: 50px;
@@ -192,40 +187,9 @@ footer section{
 }
 /*End footer*/
 /*START Settings*/
-.settingsPage{
-  height: 100%;
-}
-.settingsPage div {
-height: 100%;
-padding-top: 70px;
-z-index: 0;
-margin: 0 auto;
 
-}
-.settingsPage .filler{
-  height: 10vh;
-  width: 100%;
-}
-.settingsPage .settings-content{
-  width: 60vw;
-  height: 60vh;
-  margin: 0 auto;
-}
-.settingsPage .settings-content section{
-  width: 40vw;
-  height: 10vh;
-  background-color: transparent;
-  border-style: dashed;
-  margin: 0;
-  border-radius: 0;
-}
-.settingsPage .settings-content .section-settings-import{
-  width: 40vw;
-  height: 10vh;
-  background-color: transparent;
-  border-style: dashed;
-  margin-top: 2vh;
-}
+
+
 
 /*End Settings*/
 

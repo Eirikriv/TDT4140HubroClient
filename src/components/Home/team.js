@@ -1,7 +1,7 @@
 import React from 'react'
 export default (props)=>{
   return(
-    <section className="section-block-the-team">
+    <section className="section-block" id="the-team">
       <h1>The team</h1>
       <table>
         <tbody>
