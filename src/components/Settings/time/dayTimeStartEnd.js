@@ -69,7 +69,7 @@ handleStartChange(event, date){
         <table>
           <tbody>
             <tr>
-              <td>
+              <td className="time-first-td">
                 Start
               </td>
               <td>
@@ -85,7 +85,7 @@ handleStartChange(event, date){
               <td>
                 End
               </td>
-              <td>
+              <td className="time-second-td">
                   <TimePicker
                             format="24hr"
                             hintText="End time"

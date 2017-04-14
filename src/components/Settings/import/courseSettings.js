@@ -11,7 +11,6 @@ import {inititalFetchOfCourses} from '../../../actions/courseAction'
 class Courses extends React.Component{
   constructor(props){
     super(props)
-
     let array = []
     _.forEach(props.courses, (course)=>{
       let obj={
@@ -103,7 +102,7 @@ handleChange(event, isInputChecked){
         <td>
           {course.courseName}
         </td>
-        <td>
+        <td className="toggle-td">
 
             <Toggle
               id={course.courseId}

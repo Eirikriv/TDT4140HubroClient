@@ -27,12 +27,12 @@ this.setState({status,studentId})
   }
 
   render(){
-    if(!this.state.status || this.props.data.loading){
+    if(this.props.data.loading){
 
       return(
           <div className="settingsPage">
             <div className="filler"/>
-            <section className="settings-content">
+            <section  className="section-settings" id="settings-content">
 
               <CircularProgress size={100} thickness={5} />
             </section >
@@ -43,15 +43,14 @@ this.setState({status,studentId})
     }
     return(
       <div className="settingsPage">
-        <div className="filler"/>
-      <section className="settings-content">
+        <div className="filler" id="settingsPage-filler"/>
+        <section  className="section-settings" id="settings-content">
         <ImportSettings studentId={this.state.studentId}/>
-
+        <Timesettings studentId={this.state.studentId}/>
       </section>
       <div className="filler"/>
     </div>
     )
   }
 }
-//<Timesettings studentId={this.state.studentId}/>
 export default graphql(LoginStatus)(Settings)
