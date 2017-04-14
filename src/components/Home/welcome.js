@@ -10,7 +10,7 @@ export default (props)=>{
       </article>
     </div>
           <div className="welcome-left">
-          <img className="big-hubro-logo" id="welcome-logo" src={hubroLogo}></img>
+          <img className="big-hubro-logo" id="welcome-logo" src={hubroLogo} alt=""></img>
         </div>
   </section>)
 }

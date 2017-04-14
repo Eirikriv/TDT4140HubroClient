@@ -5,7 +5,7 @@ export default  (props)=>{
   return(
     <nav className="home-icon-section">
       <Link to='/'>
-      <img src={hubroLogo}/>
+      <img src={hubroLogo} alt=""/>
       </Link>
     </nav>
   )

@@ -1,4 +1,3 @@
-import {Link} from 'react-router'
 import React from 'react'
 import {graphql} from 'react-apollo'
 import {LoginStatus} from '../../graphql/queries'

@@ -8,19 +8,19 @@ export default (props)=>{
           <tr>
             <td>
               <figure>
-              <img src={"https://placehold.it/200x200"}/>
+              <img src={"https://placehold.it/200x200"} alt=""/>
               <figcaption>Johannes</figcaption>
           </figure>
             </td>
             <td>
               <figure>
-              <img src={"https://placehold.it/200x200"}/>
+              <img src={"https://placehold.it/200x200"} alt=""/>
               <figcaption>Johannes</figcaption>
           </figure>
             </td>
             <td>
               <figure>
-              <img src={"https://placehold.it/200x200"}/>
+              <img src={"https://placehold.it/200x200"} alt=""/>
               <figcaption>
                 Johannes
               </figcaption>
@@ -28,7 +28,7 @@ export default (props)=>{
             </td>
             <td>
               <figure>
-              <img src={"https://placehold.it/200x200"}/>
+              <img src={"https://placehold.it/200x200"} alt=""/>
               <figcaption>
                 Johannes
               </figcaption>
