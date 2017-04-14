@@ -1,28 +1,28 @@
 
 
 body {
-  min-height: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   font-size: 62.5%;
 }
 html{
-  min-height: 100%;
+  height: 100%;
 }
 
 [data-reactroot]
-        {min-height: 100% !important; }
+        {height: 100% !important; }
 
 *{
   margin: 0;
   padding: 0;
 }
 .container{
-  min-height: 100%;
+  height: 100%;
 }
 .app{
-  width: inherit;
+  width: 100%;
 }
 
 .coverPhoto{
@@ -191,6 +191,46 @@ footer section{
   background-color: inherit;
 }
 /*End footer*/
+/*START Settings*/
+.settingsPage{
+  height: 100%;
+}
+.settingsPage div {
+height: 100%;
+padding-top: 70px;
+z-index: 0;
+margin: 0 auto;
+
+}
+.settingsPage .filler{
+  height: 10vh;
+  width: 100%;
+}
+.settingsPage .settings-content{
+  width: 60vw;
+  height: 60vh;
+  margin: 0 auto;
+}
+.settingsPage .settings-content section{
+  width: 40vw;
+  height: 10vh;
+  background-color: transparent;
+  border-style: dashed;
+  margin: 0;
+  border-radius: 0;
+}
+.settingsPage .settings-content .section-settings-import{
+  width: 40vw;
+  height: 10vh;
+  background-color: transparent;
+  border-style: dashed;
+  margin-top: 2vh;
+}
+
+/*End Settings*/
+
+
+
 /*@media screen and (max-width:600px){
   .coverPhoto{
     height: 10vh;

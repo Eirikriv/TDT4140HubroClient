@@ -86,13 +86,13 @@ renderList(){
 }
 
   render(){
-    return (<div>
+    return (
       <table>
         <tbody>
       {this.renderList()}
     </tbody>
     </table>
-    </div>)
+    )
   }
 }
 const mapStateToProps = (state)=>{

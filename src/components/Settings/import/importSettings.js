@@ -5,30 +5,7 @@ import {getSettings} from '../../../graphql/queries'
 import Courses from './courseSettings'
 import Lines from './typesSettings'
 import CircularProgress from 'material-ui/CircularProgress';
-//<CircularProgress size={100} thickness={5} />
-import styled from 'styled-components'
 
-const ImportSettingsDiv = styled.div`
-height:30vh;
-width:500px;
-margin: 10vh auto auto 25%;
-`
-const Content = styled.div`
-height:100%;
-width:100%;
-margin:0 50% auto auto
-`
-
-const TITLE = styled.div`
-font-size:40px;
-width:500px;
-text-align:center;
-padding-top: 20px;
-`
-const Descripton = styled.p`
-font-size:15px;
-text-align:center;
-`
 class ImportSettings extends React.Component{
   constructor(props){
     super(props)
@@ -41,23 +18,25 @@ componentWillReceiveProps(nextProps){
   handleLoad(){
     if(!this.props.data.loading){
 
-      return(<Content>
+      return(<section className="section-settings-import">
         <Lines settings={this.props.data.user.studentSettings}/>
         <Courses courses={this.props.data.user.courseSelected} studentId={this.state.studentId}/>
-      </Content>
+      </section>
     )
-
-    }
+  }else {
+    return(
+      <CircularProgress size={100} thickness={5} />
+    )
+  }
   }
     render(){
 
       return(
-        <ImportSettingsDiv>
-        <TITLE>Import settings</TITLE>
-        <Descripton>- What do you want to import?</Descripton>
-        {this.handleLoad()}
-      <CircularProgress size={100} thickness={5} />
-        </ImportSettingsDiv>
+        <section className="section-block-settings-import">
+          <h3>Import settings</h3>
+          <h5>- What do you want to import?</h5>
+          {this.handleLoad()}
+      </section>
       )
     }
   }

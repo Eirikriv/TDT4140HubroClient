@@ -1,7 +1,6 @@
 import React from 'react'
 import ImportSettings from './import/importSettings'
 import Timesettings from './time/timeSettings'
-import {Outer} from './utils'
 import {LoginStatus} from '../../graphql/queries'
 import CircularProgress from 'material-ui/CircularProgress';
 import {graphql} from 'react-apollo'
@@ -31,18 +30,28 @@ this.setState({status,studentId})
     if(!this.state.status || this.props.data.loading){
 
       return(
-        <Outer>
-        <CircularProgress size={100} thickness={5} />
+          <div className="settingsPage">
+            <div className="filler"/>
+            <section className="settings-content">
 
-      </Outer>
+              <CircularProgress size={100} thickness={5} />
+            </section >
+
+
+        </div>
     )
     }
     return(
-      <Outer>
+      <div className="settingsPage">
+        <div className="filler"/>
+      <section className="settings-content">
         <ImportSettings studentId={this.state.studentId}/>
-        <Timesettings studentId={this.state.studentId}/>
-      </Outer>
+
+      </section>
+      <div className="filler"/>
+    </div>
     )
   }
 }
+//<Timesettings studentId={this.state.studentId}/>
 export default graphql(LoginStatus)(Settings)

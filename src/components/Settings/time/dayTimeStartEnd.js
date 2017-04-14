@@ -66,10 +66,6 @@ handleStartChange(event, date){
 
     render(){
       return(
-        <div>
-        <h3>
-      When would you like Hubro to schedule events
-        </h3>
         <table>
           <tbody>
             <tr>
@@ -101,7 +97,7 @@ handleStartChange(event, date){
             </tr>
           </tbody>
         </table>
-      </div>
+
       )
     }
   }

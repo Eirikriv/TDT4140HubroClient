@@ -13,20 +13,20 @@ class Timesettings extends React.Component{
   handleLoad(){
     if(!this.props.data.loading){
       let settings = this.props.data.user.studentTimeSettings
-      return(<div>
+      return(<section className="section-settings-time">
         <DayTimeStartEnd start={settings.start} end={settings.end} settingsId={settings.settingsID} studentId={settings.studentID}/>
         <AvgTimePerAssignmentCourse studentId={settings.studentID}/>
-          </div>
+        </section>
     )
 
     }
   }
     render(){
       return(
-        <div>
-        <h1>time </h1>
+        <section className="section-block-settings-time">
+        <h1>Time </h1>
         {this.handleLoad()}
-        </div>
+      </section>
       )
     }
   }
