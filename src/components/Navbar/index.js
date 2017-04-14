@@ -2,7 +2,6 @@ import React from 'react'
 import AppBar from 'material-ui/AppBar';
 import PublicElements from './publicElements'
 import PrivateElements from './privateElements'
-import {Link} from 'react-router'
 import {graphql} from 'react-apollo'
 import {LoginStatus} from '../../graphql/queries'
 import {bindActionCreators} from 'redux'

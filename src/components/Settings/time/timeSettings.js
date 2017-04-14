@@ -6,12 +6,7 @@ import AvgTimePerAssignmentCourse from './avgTimePerAssignmentCourse'
 import CircularProgress from 'material-ui/CircularProgress';
 
 class Timesettings extends React.Component{
-  constructor(props){
-    super(props)
-  }
-
-
-
+  
     render(){
         if(!this.props.data.loading){
           let settings = this.props.data.user.studentTimeSettings

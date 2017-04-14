@@ -17,7 +17,7 @@ export default (props)=>{
 
           <figure>
           <figcaption>Step 2: scrape relevant platforms</figcaption>
-          <img src={"https://placehold.it/350x150"}/>
+          <img src={"https://placehold.it/350x150"} alt=""/>
       </figure>
     </td>
       </tr>
@@ -26,14 +26,14 @@ export default (props)=>{
 
         <figure className="how-it-works-figure3">
           <figcaption>Step 3: compute optimal solutions for you</figcaption>
-          <img src={"https://placehold.it/350x150"}/>
+          <img src={"https://placehold.it/350x150"} alt=""/>
         </figure>
       </td>
       <td>
 
         <figure className="how-it-works-figure4">
           <figcaption>Step 4: insert events into your calendar</figcaption>
-          <img src={"https://placehold.it/350x150"}/>
+          <img src={"https://placehold.it/350x150"} alt=""/>
         </figure>
       </td>
       </tr>
