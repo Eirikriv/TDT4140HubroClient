@@ -3,30 +3,33 @@ import {graphql} from 'react-apollo'
 import {getTimeSettings} from '../../../graphql/queries'
 import DayTimeStartEnd from './dayTimeStartEnd'
 import AvgTimePerAssignmentCourse from './avgTimePerAssignmentCourse'
+import CircularProgress from 'material-ui/CircularProgress';
+
 class Timesettings extends React.Component{
   constructor(props){
     super(props)
-    this.handleLoad = this.handleLoad.bind(this)
   }
 
 
-  handleLoad(){
-    if(!this.props.data.loading){
-      let settings = this.props.data.user.studentTimeSettings
-      return(<div>
-        <DayTimeStartEnd start={settings.start} end={settings.end} settingsId={settings.settingsID} studentId={settings.studentID}/>
-        <AvgTimePerAssignmentCourse studentId={settings.studentID}/>
-          </div>
-    )
+
+    render(){
+        if(!this.props.data.loading){
+          let settings = this.props.data.user.studentTimeSettings
+          return(<section className="section-block" id="section-block-settings-time">
+          <h1>Time settings</h1>
+          <DayTimeStartEnd start={settings.start} end={settings.end} settingsId={settings.settingsID} studentId={settings.studentID}/>
+          <AvgTimePerAssignmentCourse studentId={settings.studentID}/>
+        </section>
+      )
 
     }
-  }
-    render(){
-      return(
-        <div>
-        <h1>time </h1>
-        {this.handleLoad()}
-        </div>
+    return(
+        <section className="section-block" id="section-block-settings-time">
+        <h1>Time Settings</h1>
+        <div className="progress-mui">
+        <CircularProgress size={100} thickness={5} />
+      </div>
+      </section>
       )
     }
   }

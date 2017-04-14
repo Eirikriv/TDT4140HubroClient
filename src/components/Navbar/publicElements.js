@@ -1,6 +1,5 @@
 import {Link} from 'react-router'
 import React from 'react'
-import {SingleLinks} from './utils'
 import {graphql} from 'react-apollo'
 import {LoginStatus} from '../../graphql/queries'
 
@@ -18,34 +17,37 @@ class PublicElements extends React.Component{
   render(){
     if(this.state.loading){
       return(
-        <div>
-            <SingleLinks>
+        <ul className="nav-links-container">
+            <li className="nav-link">
+              <span className="nav-link-not-active">
               Login
-            </SingleLinks>
-            <SingleLinks>
+              </span>
+            </li >
+            <li className="nav-link">
+              <span className="nav-link-not-active">
               Signup
-            </SingleLinks>
-        </div>
+              </span>
+            </li >
+        </ul>
       )
     }
     return(
-      <div>
-      <Link to='/blogg'>
-        <SingleLinks>
-          Blogg
-        </SingleLinks>
-      </Link>
+      <ul className="nav-links-container">
+        <li className="nav-link">
         <a href={this.state.googleLink}>
-          <SingleLinks>
+          <span>
             Signup
-          </SingleLinks>
+          </span>
         </a>
-        <a href={this.state.googleLink}>
-          <SingleLinks>
+      </li >
+          <li className="nav-link">
+            <a href={this.state.googleLink}>
+              <span>
             Login
-          </SingleLinks>
-        </a>
-      </div>
+          </span>
+            </a>
+          </li >
+      </ul>
     )
   }
 }

@@ -4,7 +4,6 @@ import {updateTypeSettings} from '../../../graphql/mutations'
 import {getSettings} from '../../../graphql/queries'
 import _ from 'lodash'
 import Toggle from 'material-ui/Toggle';
-import {Table,TableBody, TableRow, TableRowColumn} from '../utils'
 
  class Lines extends React.Component{
    constructor(props){
@@ -53,20 +52,20 @@ import {Table,TableBody, TableRow, TableRowColumn} from '../utils'
      return(
        this.state.settings.map((element)=>{
          return(
-           <TableRow key={element.name}>
-           <TableRowColumn>
+           <tr key={element.name}>
+           <td>
              {element.name}
-           </TableRowColumn>
-           <TableRowColumn>
+           </td>
+           <td className="toggle-td">
              <Toggle
                id={element.settingsID}
                name={element.name}
                toggled={element.value}
                onToggle={this.handleChange}
-               />
-           </TableRowColumn>
+               className="settings-toggle-type"/>
+           </td>
 
-           </TableRow>
+           </tr>
          )
        })
      )
@@ -75,12 +74,12 @@ import {Table,TableBody, TableRow, TableRowColumn} from '../utils'
 
     render(){
       return(
-        <Table >
+        <table >
 
-        <TableBody>
+        <tbody>
         {this.renderList()}
-      </TableBody>
-        </Table>
+      </tbody>
+    </table>
       )
     }
   }

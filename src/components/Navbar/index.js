@@ -1,6 +1,5 @@
 import React from 'react'
 import AppBar from 'material-ui/AppBar';
-import HomeIcon from './homeIcon'
 import PublicElements from './publicElements'
 import PrivateElements from './privateElements'
 import {Link} from 'react-router'
@@ -10,13 +9,15 @@ import {bindActionCreators} from 'redux'
 import {updateAuth} from '../../actions/authStatus'
 import {connect} from 'react-redux'
 
+
+import HomeSectionIcon from './homeSectionIcon'
 class Navbar extends React.Component{
   constructor(props){
     super(props)
     this.state = {status:false, googleLink:'', studentId:'' }
   }
 
-  
+
   componentWillReceiveProps(nextProps){
 
     if(!nextProps.data.loading){
@@ -31,9 +32,10 @@ class Navbar extends React.Component{
 
       return(
         <AppBar
-          iconElementLeft={<Link to='/'><HomeIcon/></Link>}
+          iconElementLeft={<HomeSectionIcon/>}
           title={'Hubro'}
           iconElementRight={this.state.status?<PrivateElements studentId={this.state.studentId} loading={this.props.data.loading}/>:<PublicElements googleLink={this.state.googleLink} loading={this.props.data.loading}/>}
+          className="navbar-background"
         />
       )
     }

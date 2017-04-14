@@ -66,14 +66,10 @@ handleStartChange(event, date){
 
     render(){
       return(
-        <div>
-        <h3>
-      When would you like Hubro to schedule events
-        </h3>
         <table>
           <tbody>
             <tr>
-              <td>
+              <td className="time-first-td">
                 Start
               </td>
               <td>
@@ -89,7 +85,7 @@ handleStartChange(event, date){
               <td>
                 End
               </td>
-              <td>
+              <td className="time-second-td">
                   <TimePicker
                             format="24hr"
                             hintText="End time"
@@ -101,7 +97,7 @@ handleStartChange(event, date){
             </tr>
           </tbody>
         </table>
-      </div>
+
       )
     }
   }

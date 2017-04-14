@@ -8,12 +8,9 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {inititalFetchOfCourses} from '../../../actions/courseAction'
 
-import {Table,TableBody, TableRow, TableRowColumn} from '../utils'
-
 class Courses extends React.Component{
   constructor(props){
     super(props)
-
     let array = []
     _.forEach(props.courses, (course)=>{
       let obj={
@@ -101,11 +98,11 @@ handleChange(event, isInputChecked){
 
   return( this.state.courses.map((course)=>{
     return(
-      <TableRow key={course.courseId}>
-        <TableRowColumn>
+      <tr key={course.courseId}>
+        <td>
           {course.courseName}
-        </TableRowColumn>
-        <TableRowColumn>
+        </td>
+        <td className="toggle-td">
 
             <Toggle
               id={course.courseId}
@@ -115,19 +112,19 @@ handleChange(event, isInputChecked){
               />
 
 
-        </TableRowColumn>
-      </TableRow>
+        </td>
+      </tr>
     )
   }))
   }
     render(){
       return(
 
-        <Table>
-        <TableBody>
+        <table>
+        <tbody>
         {this.renderList()}
-        </TableBody>
-        </Table>
+      </tbody>
+    </table>
 
       )
     }
