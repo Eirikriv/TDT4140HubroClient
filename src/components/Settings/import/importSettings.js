@@ -10,32 +10,24 @@ class ImportSettings extends React.Component{
   constructor(props){
     super(props)
     this.state = {studentId:props.studentId}
-    this.handleLoad = this.handleLoad.bind(this)
   }
 
-componentWillReceiveProps(nextProps){
-}
-//<Courses courses={this.props.data.user.courseSelected} studentId={this.state.studentId}/>
-  handleLoad(){
-    if(!this.props.data.loading){
-
-      return(<section className="section-settings-import">
-        <Lines settings={this.props.data.user.studentSettings}/>
-      </section>
-    )
-  }else {
-    return(
-      <CircularProgress size={100} thickness={5} />
-    )
-  }
-  }
     render(){
-
-      return(
-        <section className="section-block-settings-import">
-        {this.handleLoad()}
-      </section>
-      )
+      if(!this.props.data.loading){
+          return(
+              <section className="section-block" id="section-settings-import">
+                <h1>Import settings</h1>
+              <Lines settings={this.props.data.user.studentSettings}/>
+              <Courses courses={this.props.data.user.courseSelected} studentId={this.state.studentId}/>
+              </section>
+            )
+          }
+          return(
+            <section className="section-block" id="section-settings-import">
+              <h1>Import settings</h1>
+              <CircularProgress size={100} thickness={5} className="progress-mui"/>
+            </section>
+          )
     }
   }
 

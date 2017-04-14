@@ -66,16 +66,17 @@ renderList(){
     this.state.coursesSelected.map((course)=>{
       return(
         <tr key={course.courseId}>
-          <td>
+          <td className="time-first-td">
             {course.courseName}
           </td>
-          <td>
+          <td className="time-second-td">
             <TextField
             hintText="Hint Text"
             id={course.courseId}
             name={course.courseName}
             value={course.avgAssignmentTime}
-            onChange={this.handleChange}/>
+            onChange={this.handleChange}
+            className="time-textfield"/>
 
           </td>
 

@@ -56,7 +56,7 @@ import Toggle from 'material-ui/Toggle';
            <td>
              {element.name}
            </td>
-           <td>
+           <td className="toggle-td">
              <Toggle
                id={element.settingsID}
                name={element.name}

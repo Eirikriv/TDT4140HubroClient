@@ -24,7 +24,9 @@ html{
 .app{
   width: 100%;
 }
-
+.progress-mui{
+  margin: 0 auto !important;
+}
 .coverPhoto{
   background-image: url('./assets/images/abstractBackground.jpg');
   background-repeat: no-repeat;
@@ -63,6 +65,10 @@ html{
 }
 .section-block figure{
   display: inline;
+}
+.filler{
+  height: 130px;
+  width: 100%;
 }
 /*welcome*/
 .welcome-right{
@@ -187,10 +193,49 @@ footer section{
 }
 /*End footer*/
 /*START Settings*/
+.settingsPage{
+  width: 100%;
+  min-height: 100%;
+}
+.section-settings{
+  width: 100%;
+  min-height:  100%;
+}
 
+ #section-settings-import{
+  height: 300px;
+}
+#section-settings-import table{
+  width: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 1.7em;
+}
+#section-settings-import td{
+  width: 150px;
+  padding: 0;
+  margin: 0;
 
+}
+.toggle-td{
+  width: 50px !important;
+}
 
-
+#section-block-settings-time table{
+  width: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 1.7em;
+}
+#section-block-settings-time .time-first-td{
+  width: 150px;
+}
+#section-block-settings-time .time-second-td{
+  width: 50px !important;
+}
+.time-textfield{
+  text-align: center !important;
+}
 /*End Settings*/
 
 
