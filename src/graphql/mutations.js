@@ -13,4 +13,5 @@ const updateTimeStart = gql`mutation updateStart($studentId: String!, $settingsI
 
 const updateAvgAssignmentTime = gql`mutation updateAvgTime($studentId: String!,$courseID:String!, $courseName:String!, $avgAssignmentTime:String!){updateCourseAvgTime(studentID:$studentId, courseID:$courseID,courseName:$courseName,avgAssignmentTime:$avgAssignmentTime){courseName courseId avgAssignmentTime }}`
 const SignOutMutation = gql`mutation{signOut{status studentID}}`
-export {updateTypeSettings, addCourse, removeCourse, updateTimeEnd, updateTimeStart, updateAvgAssignmentTime, SignOutMutation}
+const UpdateCalendars = gql`mutation updateCalendars($studentId: String!){updateGoogleCalendars(studentID:$studentId){updatedCalendars}}`
+export {updateTypeSettings, addCourse, removeCourse, updateTimeEnd, updateTimeStart, updateAvgAssignmentTime, SignOutMutation, UpdateCalendars}
