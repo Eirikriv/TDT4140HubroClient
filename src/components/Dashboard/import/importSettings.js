@@ -12,6 +12,9 @@ class ImportSettings extends React.Component{
     this.state = {studentId:props.studentId}
   }
 
+componentWillReceiveProps(nextprops){
+
+}
     render(){
       if(!this.props.data.loading){
           return(

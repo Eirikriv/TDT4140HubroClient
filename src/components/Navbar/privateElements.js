@@ -45,13 +45,6 @@ class PrivateElements extends React.Component{
       </span>
       </li >
   <li className="nav-link">
-    <span>
-      <Link to='/settings'>
-        Settings
-      </Link>
-    </span>
-  </li >
-  <li className="nav-link">
         <Link to='/dashboard'>
         Dashboard
     </Link>

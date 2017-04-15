@@ -23,6 +23,21 @@ import Toggle from 'material-ui/Toggle';
       this.renderList = this.renderList.bind(this)
       this.handleChange = this.handleChange.bind(this)
    }
+
+   componentWillReceiveProps(nextProps){
+     let array = []
+     let studentID = ''
+     _.forEach(nextProps.settings, (set)=>{
+       studentID = set.studentID
+         let settings = {
+           name: set.name,
+           settingsID: set.settingsID,
+           value : set.value
+         }
+         array.push(settings)
+     })
+     this.setState({studentID, settings:array})
+   }
    handleChange(event, isInputChecked){
      let settingsName = event.target.name
      let settingsId = event.target.id
@@ -32,23 +47,10 @@ import Toggle from 'material-ui/Toggle';
           variables: { studentId: this.state.studentID , settingsId, settingsName, settingsValue},
           refetchQueries:[{query:getSettings,
           variables:{studentId:this.state.studentID}}]
-        }).then(({data})=>{
-        let prevStateSettings = this.state
-        let updatedSettings = data.updateUserSettings
-        prevStateSettings.settings.map((el)=>{
-          if (el.name === settingsName){
-            el.value = updatedSettings.value
-          }
-          return el
-        })
-
-        this.setState({settings:prevStateSettings.settings})
-      }
-      )
+        }).then().catch(err => console.log('err'))
 
    }
    renderList(){
-
      return(
        this.state.settings.map((element)=>{
          return(
