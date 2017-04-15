@@ -9,9 +9,13 @@ import CircularProgress from 'material-ui/CircularProgress';
 class ImportSettings extends React.Component{
   constructor(props){
     super(props)
+    console.log(props);
     this.state = {studentId:props.studentId}
   }
 
+componentWillReceiveProps(nextprops){
+
+}
     render(){
       if(!this.props.data.loading){
           return(

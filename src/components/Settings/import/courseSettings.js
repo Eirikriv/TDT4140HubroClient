@@ -2,7 +2,7 @@ import React from 'react'
 import _ from 'lodash'
 import {graphql, compose} from 'react-apollo'
 import {addCourse, removeCourse} from '../../../graphql/mutations'
-import {getSettings} from '../../../graphql/queries'
+import {getSettings, LoginStatus} from '../../../graphql/queries'
 import Toggle from 'material-ui/Toggle';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
@@ -26,16 +26,24 @@ class Courses extends React.Component{
     this.renderList = this.renderList.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
+   componentWillReceiveProps(nextProps){
 
-  componentDidMount(){
-    let selectedArray = []
-    _.forEach(this.state.courses, (course)=>{
-      if(course.selectedItem){
-        selectedArray.push(course)
-      }
-    })
-    this.props.inititalFetchOfCourses(selectedArray)
-  }
+     let array = []
+     _.forEach(nextProps.courses, (course)=>{
+       let obj={
+         courseId : course.courseId,
+         courseName: course.courseName,
+         selectedItem: course.selectedItem,
+         avgAssignmentTime: course.avgAssignmentTime
+       }
+
+       array.push(obj)
+     })
+     console.log(nextProps.studentId);
+     this.setState({studentId:nextProps.studentId, courses:array})
+   }
+
+
 
 handleChange(event, isInputChecked){
   let courseName = event.target.name
@@ -45,53 +53,16 @@ handleChange(event, isInputChecked){
     this.props.newStudentCourseMutation({
       variables:{studentId:this.state.studentId, courseID, courseName },
       refetchQueries:[{query:getSettings,
-      variables:{studentId:this.state.studentId}}]
-    }).then(({data})=>{
-
-      let prevState = this.state.courses
-      let addedCourse = data.addStudentCourse
-      prevState.map((course)=>{
-        if(course.courseId === courseID){
-          course.selectedItem = addedCourse.selectedItem
-          course.avgAssignmentTime = addedCourse.avgAssignmentTime
-        }
-        return course
-      })
-        this.setState({courses:prevState})
-        let selectedArray = []
-        _.forEach(this.state.courses, (courses)=>{
-          if(courses.selectedItem){
-            selectedArray.push(courses)
-          }
-        })
-        this.props.inititalFetchOfCourses(selectedArray)
-    })
+      variables:{studentId:this.state.studentId}}, {query:LoginStatus}]
+    }).then().catch(err=>console.log('err'))
   }else{
     this.props.removeStudentCourseMutation({
       variables:{studentId:this.state.studentId, courseID, courseName},
       refetchQueries:[{query:getSettings,
-      variables:{studentId:this.state.studentId}}]
-    }).then(({data})=>{
+      variables:{studentId:this.state.studentId}}, {query:LoginStatus}]
+    }).then().catch(err=> console.log(this.state.studentId))
 
-      let prevState = this.state.courses
-      let removedCourse = data.removeStudentCourse
-      prevState.map((course)=>{
-        if(course.courseId === courseID){
-          course.selectedItem = removedCourse.selectedItem
-        }
-        return course
-      })
-        this.setState({courses:prevState})
-        let selectedArray = []
-        _.forEach(this.state.courses, (courses)=>{
-          if(courses.selectedItem){
-            selectedArray.push(courses)
-          }
-        })
-        this.props.inititalFetchOfCourses(selectedArray)
-  })
 }
-
 
 }
   renderList(){
@@ -130,11 +101,7 @@ handleChange(event, isInputChecked){
     }
   }
 
-  const mapDispatchToProps =(dispatch) =>{
-    return bindActionCreators({inititalFetchOfCourses},dispatch)
-  }
 
-Courses = connect(null, mapDispatchToProps)(Courses)
 const CoursesWithMutation = compose(
   graphql(addCourse, {name:'newStudentCourseMutation'}),
   graphql(removeCourse, {name:'removeStudentCourseMutation'})

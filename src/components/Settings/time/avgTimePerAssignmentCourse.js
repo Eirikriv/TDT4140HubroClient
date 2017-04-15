@@ -8,37 +8,50 @@ import {getSettings} from '../../../graphql/queries'
 class AvgTimePerAssignmentCourse extends React.Component{
   constructor(props){
     super(props)
+    let courses = props.courseSelected
+    this.state = {courseSelected:this.prettiFy(courses), studentId:props.studentId}
     this.renderList = this.renderList.bind(this)
-    this.state = {coursesSelected:this.prettiFy(props.coursesSelected), studentId:props.studentId}
     this.handleChange = this.handleChange.bind(this)
     this.prettiFy = this.prettiFy.bind(this)
   }
 componentWillReceiveProps(nextProps){
-this.setState({coursesSelected:this.prettiFy(nextProps.coursesSelected)})
+this.setState({courseSelected:this.prettiFy(nextProps.courseSelected)})
 }
 
 prettiFy(courses){
-courses.map((course)=>{
+  courses = _.filter(courses,(o)=>{return o.selectedItem})
+  let array = []
+  _.forEach(courses,(o)=>{
+    let obj = {
+      avgAssignmentTime:o.avgAssignmentTime,
+      courseId: o.courseId,
+      courseName: o.courseName,
+      selectedItem: o.selectedItem
+    }
+    array.push(obj)
+  })
+  array.map((course)=>{
   try {
     let stringTime = _.split(course.avgAssignmentTime, ':', 3)
     let hours = stringTime[0]
     let minutes = stringTime[1]
     course.avgAssignmentTime = `${hours}:${minutes}`
     return course
-
   } catch (e) {
     return course
   }
 })
-return courses
+return array
 }
+
+
 handleChange(event, newStringValue){
   let avgAssignmentTime = event.target.value
   let courseID = event.target.id
   let courseName = event.target.name
 let re = new RegExp('^[0-9][0-9]:[0-5][0-9]$|^[0-9][0-9]:[0-5]$|^[0-9][0-9]:$|^[0-9][0-9]$|^[0-9]$|^$')
 if(re.test(newStringValue)){
-let oldState = this.state.coursesSelected
+let oldState = this.state.courseSelected
 let newState = []
 _.forEach(oldState, (course)=>{
   if(course.courseId === courseID){
@@ -46,7 +59,7 @@ _.forEach(oldState, (course)=>{
   }
   newState.push(course)
 })
-this.setState({coursesSelected:newState})
+this.setState({courseSelected:newState})
   }
 let valid = new RegExp('^[0-9][0-9]:[0-5][0-9]$')
   if(valid.test(newStringValue)){
@@ -56,14 +69,14 @@ let valid = new RegExp('^[0-9][0-9]:[0-5][0-9]$')
       },
       refetchQueries:[{query:getSettings,
       variables:{studentId:this.state.studentId}}]
-    }).then(({data})=> console.log(data))
+    }).then()
   }
 }
 renderList(){
 
-  if (!this.state.coursesSelected.length > 0){return}
+  if (!this.state.courseSelected.length > 0){return}
   return(
-    this.state.coursesSelected.map((course)=>{
+    this.state.courseSelected.map((course)=>{
       return(
         <tr key={course.courseId}>
           <td className="time-first-td">
@@ -96,12 +109,6 @@ renderList(){
     )
   }
 }
-const mapStateToProps = (state)=>{
-  return{
-    coursesSelected : state.coursesSelected
-  }
-}
 
-AvgTimePerAssignmentCourse = connect(mapStateToProps)(AvgTimePerAssignmentCourse)
 
 export default graphql(updateAvgAssignmentTime)(AvgTimePerAssignmentCourse)

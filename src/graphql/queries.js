@@ -9,6 +9,7 @@ const getSettings = gql`query getUserSetting($studentId: String!) {
       value
     }
      courseSelected{courseName courseId selectedItem avgAssignmentTime}
+     studentTimeSettings{settingsID start end studentID}
   }
 }`
 const UserQuery = gql`query UserQuery($studentID: String!){user(studentID:$studentID){studentName profilePictureUrl}}`

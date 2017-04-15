@@ -5,6 +5,7 @@ import {LoginStatus} from '../../graphql/queries'
 import CircularProgress from 'material-ui/CircularProgress';
 import {graphql} from 'react-apollo'
 import {browserHistory} from 'react-router'
+
 class Settings extends React.Component{
   constructor(props){
     super(props)
@@ -16,18 +17,18 @@ class Settings extends React.Component{
   }
   componentWillReceiveProps(nextprops){
     if(!nextprops.data.loading){
-let studentId = nextprops.data.currenUserStatus.studentID
-let status = nextprops.data.currenUserStatus.status
+    let studentId = nextprops.data.currenUserStatus.studentID
+    let status = nextprops.data.currenUserStatus.status
 
-if(!status){
-  browserHistory.push('/')
-}
+    if(!status){
+      browserHistory.push('/')
+    }
 this.setState({status,studentId})
   }
   }
 
   render(){
-    if(this.props.data.loading){
+    if(this.props.data.loading || !this.state.status){
 
       return(
           <div className="settingsPage">
