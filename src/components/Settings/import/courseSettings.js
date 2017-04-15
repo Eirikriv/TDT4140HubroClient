@@ -36,7 +36,6 @@ class Courses extends React.Component{
 
        array.push(obj)
      })
-     console.log(nextProps.studentId);
      this.setState({studentId:nextProps.studentId, courses:array})
    }
 

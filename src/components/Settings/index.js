@@ -5,6 +5,7 @@ import {LoginStatus} from '../../graphql/queries'
 import CircularProgress from 'material-ui/CircularProgress';
 import {graphql} from 'react-apollo'
 import {browserHistory} from 'react-router'
+import InsertNewEvents from './events/index'
 
 class Settings extends React.Component{
   constructor(props){
@@ -46,6 +47,7 @@ this.setState({status,studentId})
       <div className="settingsPage">
         <div className="filler" id="settingsPage-filler"/>
         <section  className="section-settings" id="settings-content">
+        <InsertNewEvents studentId={this.state.studentId}/>
         <ImportSettings studentId={this.state.studentId}/>
         <Timesettings studentId={this.state.studentId}/>
       </section>

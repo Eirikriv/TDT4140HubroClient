@@ -236,6 +236,26 @@ footer section{
 .time-textfield{
   text-align: center !important;
 }
+
+#setting-event{
+  height: 300px;
+}
+#setting-event button{
+width: 350px;
+height: 60px;
+display: block;
+border-radius: 30px;
+border-color: #613D31;
+background-color: #f0f0f0;
+color: #333333;
+margin: 50px  auto 0;
+font-size: 20px;
+}
+#setting-event button:hover{
+  background-color: #fcc438;
+  cursor: pointer;
+
+}
 /*End Settings*/
 
 

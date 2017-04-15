@@ -47,7 +47,7 @@ import Toggle from 'material-ui/Toggle';
           variables: { studentId: this.state.studentID , settingsId, settingsName, settingsValue},
           refetchQueries:[{query:getSettings,
           variables:{studentId:this.state.studentID}}]
-        }).then(({data})=>console.log(data)).catch(err => console.log('err'))
+        }).then().catch(err => console.log('err'))
 
    }
    renderList(){
