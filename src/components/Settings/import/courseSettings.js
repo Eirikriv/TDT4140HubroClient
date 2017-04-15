@@ -4,9 +4,6 @@ import {graphql, compose} from 'react-apollo'
 import {addCourse, removeCourse} from '../../../graphql/mutations'
 import {getSettings, LoginStatus} from '../../../graphql/queries'
 import Toggle from 'material-ui/Toggle';
-import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
-import {inititalFetchOfCourses} from '../../../actions/courseAction'
 
 class Courses extends React.Component{
   constructor(props){
