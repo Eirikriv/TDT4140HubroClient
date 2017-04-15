@@ -1,15 +1,14 @@
 import React from 'react';
 import {Route, IndexRoute} from 'react-router';
 import App from './components/App';
-import {browserHistory} from "react-router";
-
-
-//must check with server
+import Home from './components/Home/index'
+import Dashboard from './components/Dashboard/index'
 
 
 export default(
   <Route path="/" component={App}>
-<IndexRoute component={App}/>
-    <Route path="profil" component={App}/>
-    </Route>
+<IndexRoute component={Home}/>
+<Route path="dashboard" component={Dashboard}>
+</Route>
+  </Route>
 )

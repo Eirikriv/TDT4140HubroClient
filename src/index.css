@@ -1,5 +1,286 @@
+
+
 body {
+  min-height: 100%;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  font-size: 62.5%;
 }
+html{
+  min-height: 100%;
+}
+
+[data-reactroot]
+        {min-height: 100% !important; }
+
+*{
+  margin: 0;
+  padding: 0;
+}
+.container{
+  min-height: 100%;
+}
+.app{
+  width: 100%;
+}
+.progress-mui{
+  margin: 0 auto !important;
+}
+.coverPhoto{
+  background-image: url('./assets/images/abstractBackground.jpg');
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 450px;
+  background-position: center;
+  background-size: cover;
+}
+/* general classes*/
+.section-block{
+  width: 950px;
+  height: 500px;
+  border-radius: 30px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f0f0f0;
+}
+.section-block h1{
+  font-style: italic;
+ font-weight: lighter;
+ color: #fcc438;
+ text-align: left;
+ font-size: 3em;
+}
+.section-block p{
+  margin: 1em;
+  font-size: 2em;
+}
+
+.section-block figcaption{
+  padding-bottom: 10px;
+  color: #333333;
+  font-style: italic;
+  font-weight: 200;
+  font-size: 15px;
+}
+.section-block figure{
+  display: inline;
+}
+.filler{
+  height: 130px;
+  width: 100%;
+}
+/*welcome*/
+.welcome-right{
+  width:500px;
+  height: 100%;
+  float: right;
+}
+.welcome-right h1{
+  text-align: center;;
+}
+.welcome-left{
+  width: 400px;
+  height: 100%;
+  float: left;
+}
+ #welcome{
+  height: 400px;
+}
+/*End welcome*/
+/* Get started*/
+#get-started{
+  height: 200px;
+}
+
+/* Get started END*/
+
+/*HOW it works */
+#how-it-works {
+  height: 650px;
+}
+#how-it-works table{
+  width: 700px;
+  margin: 20px auto;
+}
+#how-it-works td{
+  padding: 20px;
+}
+
+#how-it-works img{
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  display: block;
+  margin: auto;
+}
+#how-it-works figcaption{
+  text-align: center;
+}
+/*HOW it works end*/
+/*The team */
+#the-team img{
+  border-radius: 50%;
+  display: block;
+}
+#the-team table{
+  padding-top: 30px;
+  width: 700px;
+  margin: 0 auto;
+}
+#the-team figcaption{
+  text-align: center;
+}
+#the-team td{
+  padding: 10px;
+}
+/*The team end*/
+/*NAV BAR*/
+a:link, a:visited{
+  text-decoration: none;
+}
+.home-icon-section{
+  width: 50px;
+  height: 50px;
+  margin:0 auto;
+}
+
+.nav-links-container{
+  list-style-type: none;
+}
+.nav-links-container .nav-link{
+  display: inline;
+  margin: 20px;
+  font-size: 15px;
+  vertical-align: middle;
+  color: white;
+}
+.nav-links-container .nav-link span,a , a:hover, span:hover{
+  color: white;
+  font-size: 20px;
+    cursor: pointer;
+}
+.nav-links-container .nav-link .nav-link-not-active:hover{
+  cursor: default;
+}
+.nav-avatar{
+  vertical-align: middle !important;
+}
+.nav-links-container .nav-link-special{
+  display: inline;
+  margin: 0 auto;
+}
+.navbar-background {
+  z-index: 5 !important;
+  position: fixed !important;
+}
+/*END NAVBAR*/
+/*Start footer*/
+footer{
+  width: 100%;
+  height: 150px;
+  background-color: #093457;
+
+  left: 0;
+  bottom: 0;
+}
+footer section{
+  height: 50px;
+  border-radius: 0;
+  padding-top: 20px;
+  margin: 0 auto;
+  background-color: inherit;
+}
+/*End footer*/
+/*START Settings*/
+.settingsPage{
+  width: 100%;
+  min-height: 100%;
+}
+.section-settings{
+  width: 100%;
+  min-height:  100%;
+}
+
+ #section-settings-import{
+  height: 300px;
+}
+#section-settings-import table{
+  width: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 1.7em;
+}
+#section-settings-import td{
+  width: 150px;
+  padding: 0;
+  margin: 0;
+
+}
+.toggle-td{
+  width: 50px !important;
+}
+
+#section-block-settings-time table{
+  width: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 1.7em;
+}
+#section-block-settings-time .time-first-td{
+  width: 150px;
+}
+#section-block-settings-time .time-second-td{
+  width: 50px !important;
+}
+.time-textfield{
+  text-align: center !important;
+}
+
+#setting-event{
+  height: 300px;
+}
+#setting-event button{
+width: 350px;
+height: 60px;
+display: block;
+border-radius: 30px;
+border-color: #613D31;
+background-color: #f0f0f0;
+color: #333333;
+margin: 50px  auto 0;
+font-size: 20px;
+}
+#setting-event button:hover{
+  background-color: #fcc438;
+  cursor: pointer;
+
+}
+#setting-event span:hover{
+  color: #fcc438;
+  font-size: 30px;
+    cursor: default;;
+}
+/*End Settings*/
+
+
+
+/*@media screen and (max-width:600px){
+  .coverPhoto{
+    height: 10vh;
+    width: 100%;
+  }
+  .nav-links-container .nav-link span,a {
+    font-size: 15px;
+
+  }
+
+  .nav-avatar{
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .home-icon-section{
+    width: 30px;
+    height: 30px;
+  }
+}*/
