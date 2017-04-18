@@ -18,4 +18,5 @@ yarn-error.log*
 
 /.storybook
 /src/stories
+.idea/workspace.xml
 /src/node-modules
