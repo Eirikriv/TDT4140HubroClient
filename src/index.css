@@ -37,7 +37,8 @@ html{
 }
 /* general classes*/
 .section-block{
-  width: 950px;
+  /*width: 950px;*/
+  width:100%;
   height: 500px;
   border-radius: 30px;
   margin: 50px auto;

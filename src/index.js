@@ -12,7 +12,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import colors from './assets/colorSchema'
 const networkInterface = createNetworkInterface({
-  uri: 'http://api.v1.hubro.tech/graphql'
+  uri: 'http://api.v2.hubro.tech/graphql'
 })
 
 
