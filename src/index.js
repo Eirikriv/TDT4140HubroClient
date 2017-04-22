@@ -24,11 +24,11 @@ const client  = new ApolloClient({
 const muiTheme = getMuiTheme({
   palette: {
     textColor: colors.mainTextcolor,
-    primary1Color: colors.blue,
+    primary1Color: colors.blue_opaque,
     pickerHeaderColor: colors.blue
   },
   appBar: {
-    height: 70,
+    height: 50,
   },
 });
 

@@ -6,7 +6,13 @@ export default (props)=>{
         <div className="welcome-right">
       <h1 className="section-title">Welcome to Hubro!</h1>
       <article>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p> Hubro is the application that makes your life as a student easier. It automates your planning
+            process and breaks big assignments into comprehensive work units. This leads to an even workload
+            throughout the semester, and you’ll never have the problem of underestimating work load ever again.
+            Through web scraping, Hubro fetches exercises and lecture times from Its Learning and plans your
+            week in detail. Based on your preferences, Hubro will adjust your schedule so you stay on track
+            according to your goals.
+        </p>
       </article>
     </div>
           <div className="welcome-left">
