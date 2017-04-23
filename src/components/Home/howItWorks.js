@@ -34,6 +34,7 @@ export default (props)=>{
         <figure className="how-it-works-figure4">
           <figcaption>Step 4: insert events into your calendar</figcaption>
           <img src={require('../../assets/images/calendarGoogle.jpg')} alt=""/>
+
         </figure>
       </td>
       </tr>

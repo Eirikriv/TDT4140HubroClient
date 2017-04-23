@@ -38,7 +38,8 @@ export default (props)=>{
         </tbody>
       </table>
       <article>
-        <p>We are four students from Norwegian University of Science and Technology in Trondheim, Norway,
+        <p>
+          We are four students from Norwegian University of Science and Technology in Trondheim, Norway,
           studying Computer Science and Industrial Economics and Technology Management. We have
           been making this application during a course in Software Engineering.
         </p>
