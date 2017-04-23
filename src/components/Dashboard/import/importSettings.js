@@ -1,3 +1,8 @@
+/* This js script updates the users course settings to the database, and displays existing
+ * settings to the user. This includes which courses should be included in the users
+ * personal calendar. */
+
+
 import React from 'react'
 import {graphql} from 'react-apollo'
 

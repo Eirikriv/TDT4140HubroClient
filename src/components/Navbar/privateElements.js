@@ -1,3 +1,7 @@
+/* This js script creates the navigation bar's links in the rightmost part of the navigation bar, sign out and
+dashboard, when the user is already signed in. The sign out link redirects the user to the home page, and
+ signs the user out of Hubro. The dashboard link redirects the user to his/her personal dashboard. */
+
 import {Link} from 'react-router'
 import React from 'react'
 import defaultAvatar from '../../assets/images/defaultAvatar.png'

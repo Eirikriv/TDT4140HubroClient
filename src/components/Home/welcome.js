@@ -1,3 +1,5 @@
+/* This js script creates the webpages welcom section with title and an introductory text */
+
 import React from 'react'
 import hubroLogo from '../../assets/images/hubroLogo.svg'
 export default (props)=>{

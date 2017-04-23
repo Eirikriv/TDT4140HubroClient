@@ -1,3 +1,5 @@
+/* This js script creates the the dashboard page with setting associated to each personal user. */
+
 import React from 'react'
 import ImportSettings from './import/importSettings'
 import Timesettings from './time/timeSettings'

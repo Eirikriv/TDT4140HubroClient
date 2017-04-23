@@ -1,3 +1,6 @@
+/* This js script creates the webpages team section with pictures of our group, and a
+ * text about us. */
+
 import React from 'react'
 export default (props)=>{
   return(

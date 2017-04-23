@@ -1,3 +1,6 @@
+/* This js script creates the navigation bar's links in the rightmost part of the navigation bar, sign up and login, which redirects
+the user to the settings page. */
+
 import React from 'react'
 import {graphql} from 'react-apollo'
 import {LoginStatus} from '../../graphql/queries'

@@ -1,3 +1,6 @@
+/* This js script creates the webpages get started section, with heading, text and sign
+   in with google button */
+
 import React from 'react'
 export default (props)=>{
   return(

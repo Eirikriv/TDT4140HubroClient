@@ -1,3 +1,5 @@
+/* This js script creates the webpages how it works section with pictures pictures and associated text. */
+
 import React from 'react'
 export default (props)=>{
   return(<section className="section-block" id="how-it-works">

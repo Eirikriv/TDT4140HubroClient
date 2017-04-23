@@ -1,3 +1,5 @@
+/* This js script creates the webpages coverphoto and it's cover text */
+
 import React from 'react'
 export default (props)=>{
   return(

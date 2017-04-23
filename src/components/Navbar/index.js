@@ -1,3 +1,6 @@
+/* This js script implement the webpages navigation bar. Js scripts from the same folder, Navbar, is imported and
+ * run from here. */
+
 import React from 'react'
 import AppBar from 'material-ui/AppBar';
 import PublicElements from './publicElements'

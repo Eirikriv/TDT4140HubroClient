@@ -1,3 +1,6 @@
+/* This js script implements the the actual home page, divided into different sections. The sections
+ * are imported from different js files, located in the same (home) folder. */
+
 import React from 'react'
 import HowItWorks from './howItWorks'
 import GetStarted from './getStarted'
