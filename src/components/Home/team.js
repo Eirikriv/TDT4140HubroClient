@@ -8,7 +8,7 @@ export default (props)=>{
           <tr>
             <td>
               <figure>
-              <img src={"https://placehold.it/200x200"} alt=""/>
+              <img src={require('../../assets/images/hubro-jørgen.jpg')} alt=""/>
               <figcaption>Jørgen</figcaption>
           </figure>
             </td>
@@ -20,7 +20,7 @@ export default (props)=>{
             </td>
             <td>
               <figure>
-              <img src={"https://placehold.it/200x200"} alt=""/>
+              <img className="hubro-johannes" src={require('../../assets/images/hubro-johannes.jpg')} alt=""/>
               <figcaption>
                 Johannes
               </figcaption>
@@ -28,7 +28,7 @@ export default (props)=>{
             </td>
             <td>
               <figure>
-              <img src={"https://placehold.it/200x200"} alt=""/>
+              <img src={require('../../assets/images/hubro-eirik.jpg')} alt=""/>
               <figcaption>
                 Eirik
               </figcaption>
@@ -39,7 +39,9 @@ export default (props)=>{
       </table>
       <article>
         <p>
-          I am a funny person. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          We are four students from Norwegian University of Science and Technology in Trondheim, Norway,
+          studying Computer Science and Industrial Economics and Technology Management. We have
+          been making this application during a course in Software Engineering.
         </p>
       </article>
     </section>
