@@ -78,7 +78,6 @@ html{
 .section-block figcaption{
     padding-bottom: 10px;
     color: #333333;
-    font-style: italic;
     font-weight: 200;
     font-size: 15px;
 }
@@ -132,15 +131,36 @@ html{
     padding: 20px;
 }
 
-#how-it-works img{
+#how-it-works figure > div{
     border-radius: 50%;
     height: 200px;
     width: 200px;
     display: block;
     margin: auto;
+    background-color: #FFFFFF;
+    overflow: hidden;
 }
+#how-it-works figure > div > img{
+    width: 176px;
+    display: block;
+    margin: auto;
+}
+
 #how-it-works figcaption{
     text-align: center;
+}
+.googleLogo{
+    padding-top: 12px;
+}
+.itsLogo{
+    padding-top: 30px;
+}
+.brainLogo{
+    padding-top: 25px;
+}
+.calendarLogo{
+    padding-top: 33px;
+    padding-left: 3px;
 }
 /*HOW it works end*/
 /*The team */
