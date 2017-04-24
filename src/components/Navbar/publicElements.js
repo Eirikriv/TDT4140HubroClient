@@ -36,7 +36,7 @@ class PublicElements extends React.Component{
     return(
       <ul className="nav-links-container">
         <li className="nav-link">
-        <!--THIS IS THE LINK THAT MUST BE CHANGED-->
+        /*THIS IS THE LINK THAT MUST BE CHANGED*/
         <a href={this.state.googleLink}>
           <span>
             Signup
